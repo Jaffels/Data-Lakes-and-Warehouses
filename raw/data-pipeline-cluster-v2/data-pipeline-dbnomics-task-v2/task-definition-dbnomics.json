@@ -1,0 +1,25 @@
+{
+  "family": "data-pipeline-dbnomics-task-v2",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "1024",
+  "memory": "2048",
+  "executionRoleArn": "arn:aws:iam::404264700821:role/DataPipelineECSTaskRoleV2",
+  "taskRoleArn": "arn:aws:iam::404264700821:role/DataPipelineECSTaskRoleV2",
+  "containerDefinitions": [
+    {
+      "name": "dbnomics-fetcher",
+      "image": "404264700821.dkr.ecr.us-east-1.amazonaws.com/data-pipeline-dbnomics-v2:latest",
+      "essential": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/data-pipeline-dbnomics-v2",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs",
+          "awslogs-create-group": "true"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+FROM public.ecr.aws/lambda/python:3.11
+
+# Install dependencies
+RUN pip install --no-cache-dir \
+    boto3 \
+    yfinance \
+    requests \
+    pandas \
+    "numpy<2.0"
+# Copy the script
+COPY generate_stock_list.py /var/task/
+
+# Set the entrypoint
+ENTRYPOINT ["python", "/var/task/generate_stock_list.py"]
