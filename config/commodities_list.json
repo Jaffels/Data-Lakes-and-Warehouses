@@ -1,0 +1,48 @@
+{
+  "metadata": {
+    "sector": "commodities",
+    "description": "Major commodities including energy, precious metals, industrial metals, and agriculture",
+    "asset_count": 25,
+    "primary_api": "yahoo_finance",
+    "secondary_api": "quandl"
+  },
+  "api_config": {
+    "yahoo_finance": {
+      "library": "yfinance",
+      "symbol_format": "Futures contracts end with =F"
+    },
+    "quandl": {
+      "base_url": "https://data.nasdaq.com/api/v3",
+      "free_tier": "50,000 calls/day",
+      "endpoint": "/datasets/{code}/data.json",
+      "notes": "Multiple databases: FRED for spot prices, LBMA for precious metals, ODA for IMF commodity prices. Data delay varies by source."
+    }
+  },
+  "assets": [
+    {"name": "Crude Oil WTI", "category": "energy", "yahoo_finance": "CL=F", "quandl": "FRED/DCOILWTICO"},
+    {"name": "Crude Oil Brent", "category": "energy", "yahoo_finance": "BZ=F", "quandl": "FRED/DCOILBRENTEU"},
+    {"name": "Natural Gas", "category": "energy", "yahoo_finance": "NG=F", "quandl": "FRED/DHHNGSP"},
+    {"name": "RBOB Gasoline", "category": "energy", "yahoo_finance": "RB=F", "quandl": null},
+    {"name": "Heating Oil", "category": "energy", "yahoo_finance": "HO=F", "quandl": null},
+    {"name": "Gold", "category": "precious_metals", "yahoo_finance": "GC=F", "quandl": "LBMA/GOLD"},
+    {"name": "Silver", "category": "precious_metals", "yahoo_finance": "SI=F", "quandl": "LBMA/SILVER"},
+    {"name": "Platinum", "category": "precious_metals", "yahoo_finance": "PL=F", "quandl": "LPPM/PLAT"},
+    {"name": "Palladium", "category": "precious_metals", "yahoo_finance": "PA=F", "quandl": "LPPM/PALL"},
+    {"name": "Copper", "category": "industrial_metals", "yahoo_finance": "HG=F", "quandl": "ODA/PCOPP_USD"},
+    {"name": "Aluminum", "category": "industrial_metals", "yahoo_finance": "ALI=F", "quandl": "ODA/PALUM_USD"},
+    {"name": "Zinc", "category": "industrial_metals", "yahoo_finance": null, "quandl": "ODA/PZINC_USD"},
+    {"name": "Nickel", "category": "industrial_metals", "yahoo_finance": null, "quandl": "ODA/PNICK_USD"},
+    {"name": "Lead", "category": "industrial_metals", "yahoo_finance": null, "quandl": "ODA/PLEAD_USD"},
+    {"name": "Tin", "category": "industrial_metals", "yahoo_finance": null, "quandl": "ODA/PTIN_USD"},
+    {"name": "Corn", "category": "agriculture", "yahoo_finance": "ZC=F", "quandl": "ODA/PMAIZMT_USD"},
+    {"name": "Wheat", "category": "agriculture", "yahoo_finance": "ZW=F", "quandl": "ODA/PWHEAMT_USD"},
+    {"name": "Soybeans", "category": "agriculture", "yahoo_finance": "ZS=F", "quandl": "ODA/PSOYB_USD"},
+    {"name": "Coffee", "category": "agriculture", "yahoo_finance": "KC=F", "quandl": "ODA/PCOFFOTM_USD"},
+    {"name": "Sugar", "category": "agriculture", "yahoo_finance": "SB=F", "quandl": "ODA/PSUGAISA_USD"},
+    {"name": "Cocoa", "category": "agriculture", "yahoo_finance": "CC=F", "quandl": "ODA/PCOCO_USD"},
+    {"name": "Cotton", "category": "agriculture", "yahoo_finance": "CT=F", "quandl": "ODA/PCOTTIND_USD"},
+    {"name": "Live Cattle", "category": "livestock", "yahoo_finance": "LE=F", "quandl": "ODA/PBEEF_USD"},
+    {"name": "Lean Hogs", "category": "livestock", "yahoo_finance": "HE=F", "quandl": "ODA/PPORK_USD"},
+    {"name": "Lumber", "category": "forestry", "yahoo_finance": "LBS=F", "quandl": "ODA/PSAWMAL_USD"}
+  ]
+}

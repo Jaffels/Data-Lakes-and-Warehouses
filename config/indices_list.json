@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "sector": "indices",
+    "description": "Global stock market indices",
+    "asset_count": 20,
+    "primary_api": "yahoo_finance",
+    "secondary_api": "quandl"
+  },
+  "api_config": {
+    "yahoo_finance": {
+      "library": "yfinance",
+      "symbol_format": "Use symbols as-is with ^ prefix"
+    },
+    "quandl": {
+      "base_url": "https://data.nasdaq.com/api/v3",
+      "free_tier": "50,000 calls/day",
+      "endpoint": "/datasets/{code}/data.json",
+      "notes": "FRED datasets for US indices. Data typically 1 day delayed."
+    }
+  },
+  "assets": [
+    {"name": "S&P 500", "yahoo_finance": "^GSPC", "quandl": "FRED/SP500"},
+    {"name": "Dow Jones Industrial Average", "yahoo_finance": "^DJI", "quandl": "FRED/DJIA"},
+    {"name": "NASDAQ Composite", "yahoo_finance": "^IXIC", "quandl": "FRED/NASDAQCOM"},
+    {"name": "Russell 2000", "yahoo_finance": "^RUT", "quandl": null},
+    {"name": "CBOE Volatility Index (VIX)", "yahoo_finance": "^VIX", "quandl": "FRED/VIXCLS"},
+    {"name": "NASDAQ 100", "yahoo_finance": "^NDX", "quandl": null},
+    {"name": "NYSE Composite", "yahoo_finance": "^NYA", "quandl": null},
+    {"name": "S&P 100", "yahoo_finance": "^OEX", "quandl": null},
+    {"name": "S&P MidCap 400", "yahoo_finance": "^MID", "quandl": null},
+    {"name": "DAX (Germany)", "yahoo_finance": "^GDAXI", "quandl": null},
+    {"name": "MDAX (Germany Mid-Cap)", "yahoo_finance": "^MDAXI", "quandl": null},
+    {"name": "FTSE 100 (UK)", "yahoo_finance": "^FTSE", "quandl": null},
+    {"name": "CAC 40 (France)", "yahoo_finance": "^FCHI", "quandl": null},
+    {"name": "Euro Stoxx 50", "yahoo_finance": "^STOXX50E", "quandl": null},
+    {"name": "AEX (Netherlands)", "yahoo_finance": "^AEX", "quandl": null},
+    {"name": "IBEX 35 (Spain)", "yahoo_finance": "^IBEX", "quandl": null},
+    {"name": "SMI (Switzerland)", "yahoo_finance": "^SSMI", "quandl": null},
+    {"name": "Nikkei 225 (Japan)", "yahoo_finance": "^N225", "quandl": "FRED/NIKKEI225"},
+    {"name": "Hang Seng (Hong Kong)", "yahoo_finance": "^HSI", "quandl": null},
+    {"name": "S&P/ASX 200 (Australia)", "yahoo_finance": "^AXJO", "quandl": null}
+  ]
+}

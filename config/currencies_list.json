@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "sector": "currencies",
+    "description": "Foreign exchange (forex) currency pairs",
+    "asset_count": 20,
+    "primary_api": "yahoo_finance",
+    "secondary_api": "quandl"
+  },
+  "api_config": {
+    "yahoo_finance": {
+      "library": "yfinance",
+      "symbol_format": "Currency pairs end with =X"
+    },
+    "quandl": {
+      "base_url": "https://data.nasdaq.com/api/v3",
+      "free_tier": "50,000 calls/day",
+      "endpoint": "/datasets/{code}/data.json",
+      "notes": "Bank of England (BOE) spot exchange rates. Data typically 1-2 days delayed."
+    }
+  },
+  "assets": [
+    {"name": "Euro / US Dollar", "pair": "EUR/USD", "yahoo_finance": "EURUSD=X", "quandl": "BOE/XUDLERD"},
+    {"name": "British Pound / US Dollar", "pair": "GBP/USD", "yahoo_finance": "GBPUSD=X", "quandl": "BOE/XUDLGBD"},
+    {"name": "US Dollar / Japanese Yen", "pair": "USD/JPY", "yahoo_finance": "USDJPY=X", "quandl": "BOE/XUDLJYD"},
+    {"name": "US Dollar / Swiss Franc", "pair": "USD/CHF", "yahoo_finance": "USDCHF=X", "quandl": "BOE/XUDLSFD"},
+    {"name": "Australian Dollar / US Dollar", "pair": "AUD/USD", "yahoo_finance": "AUDUSD=X", "quandl": "BOE/XUDLADS"},
+    {"name": "New Zealand Dollar / US Dollar", "pair": "NZD/USD", "yahoo_finance": "NZDUSD=X", "quandl": "BOE/XUDLNDS"},
+    {"name": "US Dollar / Canadian Dollar", "pair": "USD/CAD", "yahoo_finance": "USDCAD=X", "quandl": "BOE/XUDLCDD"},
+    {"name": "Euro / British Pound", "pair": "EUR/GBP", "yahoo_finance": "EURGBP=X", "quandl": "BOE/XUDLERS"},
+    {"name": "Euro / Japanese Yen", "pair": "EUR/JPY", "yahoo_finance": "EURJPY=X", "quandl": null},
+    {"name": "British Pound / Japanese Yen", "pair": "GBP/JPY", "yahoo_finance": "GBPJPY=X", "quandl": "BOE/XUDLJYS"},
+    {"name": "Euro / Swiss Franc", "pair": "EUR/CHF", "yahoo_finance": "EURCHF=X", "quandl": null},
+    {"name": "Australian Dollar / New Zealand Dollar", "pair": "AUD/NZD", "yahoo_finance": "AUDNZD=X", "quandl": null},
+    {"name": "Euro / Australian Dollar", "pair": "EUR/AUD", "yahoo_finance": "EURAUD=X", "quandl": null},
+    {"name": "US Dollar / Chinese Yuan", "pair": "USD/CNY", "yahoo_finance": "USDCNY=X", "quandl": "BOE/XUDLBK73"},
+    {"name": "US Dollar / Indian Rupee", "pair": "USD/INR", "yahoo_finance": "USDINR=X", "quandl": "BOE/XUDLBK64"},
+    {"name": "US Dollar / Mexican Peso", "pair": "USD/MXN", "yahoo_finance": "USDMXN=X", "quandl": "BOE/XUDLBK57"},
+    {"name": "US Dollar / Brazilian Real", "pair": "USD/BRL", "yahoo_finance": "USDBRL=X", "quandl": "BOE/XUDLB8KL"},
+    {"name": "US Dollar / South African Rand", "pair": "USD/ZAR", "yahoo_finance": "USDZAR=X", "quandl": "BOE/XUDLZRD"},
+    {"name": "US Dollar / Turkish Lira", "pair": "USD/TRY", "yahoo_finance": "USDTRY=X", "quandl": "BOE/XUDLBK75"},
+    {"name": "US Dollar / Singapore Dollar", "pair": "USD/SGD", "yahoo_finance": "USDSGD=X", "quandl": "BOE/XUDLSGD"}
+  ]
+}

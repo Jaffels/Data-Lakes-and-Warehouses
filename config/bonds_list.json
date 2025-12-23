@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "sector": "bonds",
+    "description": "Treasury yields and bond ETFs",
+    "asset_count": 18,
+    "primary_api": "yahoo_finance",
+    "secondary_api": "fred"
+  },
+  "api_config": {
+    "yahoo_finance": {
+      "library": "yfinance",
+      "symbol_format": "Yield indices use ^ prefix, ETFs use standard ticker"
+    },
+    "fred": {
+      "base_url": "https://api.stlouisfed.org/fred/series/observations",
+      "library": "fredapi",
+      "free_tier": "Unlimited with API key",
+      "notes": "Official Federal Reserve data. Best source for treasury yields."
+    }
+  },
+  "assets": [
+    {"name": "10-Year Treasury Yield", "type": "yield", "yahoo_finance": "^TNX", "fred": "DGS10"},
+    {"name": "13-Week Treasury Bill Yield", "type": "yield", "yahoo_finance": "^IRX", "fred": "DTB3"},
+    {"name": "5-Year Treasury Yield", "type": "yield", "yahoo_finance": "^FVX", "fred": "DGS5"},
+    {"name": "30-Year Treasury Yield", "type": "yield", "yahoo_finance": "^TYX", "fred": "DGS30"},
+    {"name": "2-Year Treasury Yield", "type": "yield", "yahoo_finance": "^TWO", "fred": "DGS2"},
+    {"name": "1-Year Treasury Yield", "type": "yield", "yahoo_finance": null, "fred": "DGS1"},
+    {"name": "3-Month Treasury Yield", "type": "yield", "yahoo_finance": null, "fred": "DGS3MO"},
+    {"name": "Federal Funds Rate", "type": "rate", "yahoo_finance": null, "fred": "DFF"},
+    {"name": "iShares 20+ Year Treasury Bond ETF", "type": "etf", "yahoo_finance": "TLT", "fred": null},
+    {"name": "iShares 7-10 Year Treasury Bond ETF", "type": "etf", "yahoo_finance": "IEF", "fred": null},
+    {"name": "iShares 1-3 Year Treasury Bond ETF", "type": "etf", "yahoo_finance": "SHY", "fred": null},
+    {"name": "iShares Short Treasury Bond ETF", "type": "etf", "yahoo_finance": "SHV", "fred": null},
+    {"name": "iShares U.S. Treasury Bond ETF", "type": "etf", "yahoo_finance": "GOVT", "fred": null},
+    {"name": "Vanguard Long-Term Treasury ETF", "type": "etf", "yahoo_finance": "VGLT", "fred": null},
+    {"name": "iShares Investment Grade Corporate Bond ETF", "type": "etf", "yahoo_finance": "LQD", "fred": null},
+    {"name": "iShares High Yield Corporate Bond ETF", "type": "etf", "yahoo_finance": "HYG", "fred": null},
+    {"name": "iShares Core U.S. Aggregate Bond ETF", "type": "etf", "yahoo_finance": "AGG", "fred": null},
+    {"name": "Vanguard Total Bond Market ETF", "type": "etf", "yahoo_finance": "BND", "fred": null}
+  ]
+}

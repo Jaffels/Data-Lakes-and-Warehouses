@@ -1,0 +1,53 @@
+{
+  "last_run_timestamp": "2025-12-23T04:10:25.854840",
+  "sources": {
+    "stocks": {
+      "yfinance": {
+        "last_update_date": "2025-12-22",
+        "status": "success",
+        "records_fetched": 4151,
+        "last_run_timestamp": "2025-12-23T04:08:25.435462"
+      }
+    },
+    "indices": {
+      "yfinance": {
+        "last_update_date": "2025-12-22",
+        "status": "success",
+        "records_fetched": 20,
+        "last_run_timestamp": "2025-12-23T04:08:26.391685"
+      }
+    },
+    "commodities": {
+      "yfinance": {
+        "last_update_date": "2025-12-22",
+        "status": "success",
+        "records_fetched": 20,
+        "last_run_timestamp": "2025-12-23T04:08:27.454935"
+      }
+    },
+    "bonds": {
+      "yfinance": {
+        "last_update_date": "2025-12-22",
+        "status": "success",
+        "records_fetched": 14,
+        "last_run_timestamp": "2025-12-23T04:08:28.706914"
+      }
+    },
+    "currencies": {
+      "yfinance": {
+        "last_update_date": "2025-12-22",
+        "status": "success",
+        "records_fetched": 20,
+        "last_run_timestamp": "2025-12-23T04:08:29.671829"
+      }
+    },
+    "crypto": {
+      "yfinance": {
+        "last_update_date": "2025-12-22",
+        "status": "success",
+        "records_fetched": 1521,
+        "last_run_timestamp": "2025-12-23T04:10:25.854783"
+      }
+    }
+  }
+}
