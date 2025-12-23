@@ -1,0 +1,21 @@
+{
+  "last_run_timestamp": "2025-11-30T00:00:00Z",
+  "sources": {
+    "economic": {
+      "fred": {
+        "last_update_date": "2025-11-30",
+        "status": "success",
+        "records_fetched": 0,
+        "last_run_timestamp": "2025-11-30T00:00:00Z"
+      }
+    },
+    "bonds": {
+      "fred": {
+        "last_update_date": "2025-11-30",
+        "status": "success",
+        "records_fetched": 0,
+        "last_run_timestamp": "2025-11-30T00:00:00Z"
+      }
+    }
+  }
+}

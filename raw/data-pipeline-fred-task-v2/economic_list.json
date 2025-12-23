@@ -1,0 +1,3742 @@
+{
+  "metadata": {
+    "description": "Comprehensive economic indicators for FRED and DBnomics pipelines",
+    "version": "1.0",
+    "created": "2025-12-07",
+    "total_series_count": null,
+    "notes": "Series IDs are compatible with both FRED API and DBnomics (via FRED provider)"
+  },
+  "fred_series": {
+    "_comment": "Native FRED series - use directly with FRED API or via DBnomics FRED provider",
+    "interest_rates": {
+      "description": "Federal Reserve rates and Treasury yields",
+      "series": [
+        {
+          "id": "DFF",
+          "name": "Federal Funds Effective Rate",
+          "frequency": "daily"
+        },
+        {
+          "id": "FEDFUNDS",
+          "name": "Federal Funds Rate",
+          "frequency": "monthly"
+        },
+        {
+          "id": "DFEDTARU",
+          "name": "Federal Funds Target Range Upper",
+          "frequency": "daily"
+        },
+        {
+          "id": "DFEDTARL",
+          "name": "Federal Funds Target Range Lower",
+          "frequency": "daily"
+        },
+        {
+          "id": "DPRIME",
+          "name": "Prime Rate",
+          "frequency": "daily"
+        },
+        {
+          "id": "DISCOUNT",
+          "name": "Discount Window Primary Credit Rate",
+          "frequency": "weekly"
+        },
+        {
+          "id": "DGS1MO",
+          "name": "1-Month Treasury Yield",
+          "frequency": "daily"
+        },
+        {
+          "id": "DGS3MO",
+          "name": "3-Month Treasury Yield",
+          "frequency": "daily"
+        },
+        {
+          "id": "DGS6MO",
+          "name": "6-Month Treasury Yield",
+          "frequency": "daily"
+        },
+        {
+          "id": "DGS1",
+          "name": "1-Year Treasury Yield",
+          "frequency": "daily"
+        },
+        {
+          "id": "DGS2",
+          "name": "2-Year Treasury Yield",
+          "frequency": "daily"
+        },
+        {
+          "id": "DGS3",
+          "name": "3-Year Treasury Yield",
+          "frequency": "daily"
+        },
+        {
+          "id": "DGS5",
+          "name": "5-Year Treasury Yield",
+          "frequency": "daily"
+        },
+        {
+          "id": "DGS7",
+          "name": "7-Year Treasury Yield",
+          "frequency": "daily"
+        },
+        {
+          "id": "DGS10",
+          "name": "10-Year Treasury Yield",
+          "frequency": "daily"
+        },
+        {
+          "id": "DGS20",
+          "name": "20-Year Treasury Yield",
+          "frequency": "daily"
+        },
+        {
+          "id": "DGS30",
+          "name": "30-Year Treasury Yield",
+          "frequency": "daily"
+        },
+        {
+          "id": "T10Y2Y",
+          "name": "10-Year minus 2-Year Treasury Spread",
+          "frequency": "daily"
+        },
+        {
+          "id": "T10Y3M",
+          "name": "10-Year minus 3-Month Treasury Spread",
+          "frequency": "daily"
+        },
+        {
+          "id": "T10YFF",
+          "name": "10-Year minus Fed Funds Spread",
+          "frequency": "daily"
+        },
+        {
+          "id": "T5YFF",
+          "name": "5-Year minus Fed Funds Spread",
+          "frequency": "daily"
+        },
+        {
+          "id": "DFII10",
+          "name": "10-Year TIPS Yield",
+          "frequency": "daily"
+        },
+        {
+          "id": "DFII5",
+          "name": "5-Year TIPS Yield",
+          "frequency": "daily"
+        },
+        {
+          "id": "T10YIE",
+          "name": "10-Year Breakeven Inflation Rate",
+          "frequency": "daily"
+        },
+        {
+          "id": "T5YIE",
+          "name": "5-Year Breakeven Inflation Rate",
+          "frequency": "daily"
+        },
+        {
+          "id": "T5YIFR",
+          "name": "5-Year 5-Year Forward Inflation Expectation",
+          "frequency": "daily"
+        }
+      ]
+    },
+    "money_markets": {
+      "description": "Interbank rates, LIBOR, SOFR, and repo rates",
+      "series": [
+        {
+          "id": "SOFR",
+          "name": "Secured Overnight Financing Rate",
+          "frequency": "daily"
+        },
+        {
+          "id": "SOFR30DAYAVG",
+          "name": "30-Day Average SOFR",
+          "frequency": "daily"
+        },
+        {
+          "id": "SOFR90DAYAVG",
+          "name": "90-Day Average SOFR",
+          "frequency": "daily"
+        },
+        {
+          "id": "SOFR180DAYAVG",
+          "name": "180-Day Average SOFR",
+          "frequency": "daily"
+        },
+        {
+          "id": "EFFR",
+          "name": "Effective Federal Funds Rate",
+          "frequency": "daily"
+        },
+        {
+          "id": "OBFR",
+          "name": "Overnight Bank Funding Rate",
+          "frequency": "daily"
+        },
+        {
+          "id": "USD3MTD156N",
+          "name": "3-Month USD LIBOR (discontinued)",
+          "frequency": "daily"
+        },
+        {
+          "id": "RRPONTSYD",
+          "name": "Overnight Reverse Repo Rate",
+          "frequency": "daily"
+        },
+        {
+          "id": "RPONTSYD",
+          "name": "Overnight Repo Rate",
+          "frequency": "daily"
+        },
+        {
+          "id": "WORAL",
+          "name": "Assets: Securities Held Outright: U.S. Treasury Securities",
+          "frequency": "weekly"
+        }
+      ]
+    },
+    "inflation": {
+      "description": "Consumer and producer price indices",
+      "series": [
+        {
+          "id": "CPIAUCSL",
+          "name": "CPI All Urban Consumers",
+          "frequency": "monthly"
+        },
+        {
+          "id": "CPIAUCNS",
+          "name": "CPI All Urban Consumers (Not Seasonally Adjusted)",
+          "frequency": "monthly"
+        },
+        {
+          "id": "CPILFESL",
+          "name": "CPI Less Food and Energy (Core CPI)",
+          "frequency": "monthly"
+        },
+        {
+          "id": "CPIUFDSL",
+          "name": "CPI Food",
+          "frequency": "monthly"
+        },
+        {
+          "id": "CPIENGSL",
+          "name": "CPI Energy",
+          "frequency": "monthly"
+        },
+        {
+          "id": "CUSR0000SAH1",
+          "name": "CPI Shelter",
+          "frequency": "monthly"
+        },
+        {
+          "id": "CUSR0000SETB01",
+          "name": "CPI Gasoline",
+          "frequency": "monthly"
+        },
+        {
+          "id": "CUSR0000SAM2",
+          "name": "CPI Medical Care Services",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PCEPI",
+          "name": "PCE Price Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PCEPILFE",
+          "name": "PCE Price Index Less Food and Energy (Core PCE)",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PPIACO",
+          "name": "PPI All Commodities",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PPIFIS",
+          "name": "PPI Final Demand Services",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PPIFGS",
+          "name": "PPI Final Demand Goods",
+          "frequency": "monthly"
+        },
+        {
+          "id": "WPSFD4131",
+          "name": "PPI Commodities Less Food and Energy",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PCETRIM12M159SFRBDAL",
+          "name": "Trimmed Mean PCE Inflation Rate",
+          "frequency": "monthly"
+        },
+        {
+          "id": "MEDCPIM158SFRBCLE",
+          "name": "Median CPI",
+          "frequency": "monthly"
+        },
+        {
+          "id": "CORESTICKM159SFRBATL",
+          "name": "Sticky Price CPI Less Food and Energy",
+          "frequency": "monthly"
+        },
+        {
+          "id": "EXPINF1YR",
+          "name": "1-Year Expected Inflation",
+          "frequency": "monthly"
+        },
+        {
+          "id": "EXPINF10YR",
+          "name": "10-Year Expected Inflation",
+          "frequency": "monthly"
+        }
+      ]
+    },
+    "employment": {
+      "description": "Labor market indicators",
+      "series": [
+        {
+          "id": "UNRATE",
+          "name": "Unemployment Rate",
+          "frequency": "monthly"
+        },
+        {
+          "id": "U6RATE",
+          "name": "U-6 Unemployment Rate",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PAYEMS",
+          "name": "Total Nonfarm Payrolls",
+          "frequency": "monthly"
+        },
+        {
+          "id": "USPRIV",
+          "name": "Total Private Employment",
+          "frequency": "monthly"
+        },
+        {
+          "id": "MANEMP",
+          "name": "Manufacturing Employment",
+          "frequency": "monthly"
+        },
+        {
+          "id": "USCONS",
+          "name": "Construction Employment",
+          "frequency": "monthly"
+        },
+        {
+          "id": "USFIRE",
+          "name": "Financial Activities Employment",
+          "frequency": "monthly"
+        },
+        {
+          "id": "USINFO",
+          "name": "Information Sector Employment",
+          "frequency": "monthly"
+        },
+        {
+          "id": "USPBS",
+          "name": "Professional and Business Services Employment",
+          "frequency": "monthly"
+        },
+        {
+          "id": "USGOVT",
+          "name": "Government Employment",
+          "frequency": "monthly"
+        },
+        {
+          "id": "ICSA",
+          "name": "Initial Jobless Claims",
+          "frequency": "weekly"
+        },
+        {
+          "id": "CCSA",
+          "name": "Continued Jobless Claims",
+          "frequency": "weekly"
+        },
+        {
+          "id": "IC4WSA",
+          "name": "4-Week Moving Average Initial Claims",
+          "frequency": "weekly"
+        },
+        {
+          "id": "CIVPART",
+          "name": "Labor Force Participation Rate",
+          "frequency": "monthly"
+        },
+        {
+          "id": "EMRATIO",
+          "name": "Employment-Population Ratio",
+          "frequency": "monthly"
+        },
+        {
+          "id": "AWHAETP",
+          "name": "Average Weekly Hours (Private)",
+          "frequency": "monthly"
+        },
+        {
+          "id": "CES0500000003",
+          "name": "Average Hourly Earnings (Private)",
+          "frequency": "monthly"
+        },
+        {
+          "id": "ECIWAG",
+          "name": "Employment Cost Index: Wages and Salaries",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "ECIALLCIV",
+          "name": "Employment Cost Index: Total Compensation",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "JTSJOL",
+          "name": "Job Openings (JOLTS)",
+          "frequency": "monthly"
+        },
+        {
+          "id": "JTSQUR",
+          "name": "Quits Rate (JOLTS)",
+          "frequency": "monthly"
+        },
+        {
+          "id": "JTSHIR",
+          "name": "Hires Rate (JOLTS)",
+          "frequency": "monthly"
+        },
+        {
+          "id": "JTSTSR",
+          "name": "Total Separations Rate (JOLTS)",
+          "frequency": "monthly"
+        },
+        {
+          "id": "NROU",
+          "name": "Natural Rate of Unemployment (Long-Term)",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "LNS12032194",
+          "name": "Part-Time for Economic Reasons",
+          "frequency": "monthly"
+        }
+      ]
+    },
+    "gdp_output": {
+      "description": "GDP and economic output measures",
+      "series": [
+        {
+          "id": "GDP",
+          "name": "Nominal GDP",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "GDPC1",
+          "name": "Real GDP",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "GDPPOT",
+          "name": "Potential GDP",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "A191RL1Q225SBEA",
+          "name": "Real GDP Growth Rate",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "GDPDEF",
+          "name": "GDP Deflator",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "GDPCA",
+          "name": "Real GDP (Annual)",
+          "frequency": "annual"
+        },
+        {
+          "id": "PCECC96",
+          "name": "Real Personal Consumption Expenditures",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "GPDIC1",
+          "name": "Real Gross Private Domestic Investment",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "GCEC1",
+          "name": "Real Government Consumption and Investment",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "NETEXC",
+          "name": "Real Net Exports",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "A014RE1Q156NBEA",
+          "name": "Shares of GDP: Personal Consumption",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "W207RC1Q156SBEA",
+          "name": "Shares of GDP: Government Spending",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "GNP",
+          "name": "Gross National Product",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "A939RX0Q048SBEA",
+          "name": "Real GDP Per Capita",
+          "frequency": "quarterly"
+        }
+      ]
+    },
+    "industrial_production": {
+      "description": "Industrial output and capacity",
+      "series": [
+        {
+          "id": "INDPRO",
+          "name": "Industrial Production Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "IPMANSICS",
+          "name": "Industrial Production: Manufacturing",
+          "frequency": "monthly"
+        },
+        {
+          "id": "IPMINE",
+          "name": "Industrial Production: Mining",
+          "frequency": "monthly"
+        },
+        {
+          "id": "IPUTIL",
+          "name": "Industrial Production: Utilities",
+          "frequency": "monthly"
+        },
+        {
+          "id": "IPDCONGD",
+          "name": "Industrial Production: Durable Consumer Goods",
+          "frequency": "monthly"
+        },
+        {
+          "id": "IPNCONGD",
+          "name": "Industrial Production: Nondurable Consumer Goods",
+          "frequency": "monthly"
+        },
+        {
+          "id": "IPBUSEQ",
+          "name": "Industrial Production: Business Equipment",
+          "frequency": "monthly"
+        },
+        {
+          "id": "TCU",
+          "name": "Capacity Utilization: Total Industry",
+          "frequency": "monthly"
+        },
+        {
+          "id": "MCUMFN",
+          "name": "Capacity Utilization: Manufacturing",
+          "frequency": "monthly"
+        },
+        {
+          "id": "CAPUTLG3311S",
+          "name": "Capacity Utilization: Primary Metals",
+          "frequency": "monthly"
+        },
+        {
+          "id": "IPMAN",
+          "name": "Industrial Production: Manufacturing (NAICS)",
+          "frequency": "monthly"
+        }
+      ]
+    },
+    "housing": {
+      "description": "Housing market indicators",
+      "series": [
+        {
+          "id": "HOUST",
+          "name": "Housing Starts",
+          "frequency": "monthly"
+        },
+        {
+          "id": "HOUST1F",
+          "name": "Housing Starts: Single Family",
+          "frequency": "monthly"
+        },
+        {
+          "id": "HOUST5F",
+          "name": "Housing Starts: 5+ Units",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PERMIT",
+          "name": "Building Permits",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PERMIT1",
+          "name": "Building Permits: Single Family",
+          "frequency": "monthly"
+        },
+        {
+          "id": "COMPUTSA",
+          "name": "Housing Completions",
+          "frequency": "monthly"
+        },
+        {
+          "id": "HSN1F",
+          "name": "New Single-Family Houses Sold",
+          "frequency": "monthly"
+        },
+        {
+          "id": "EXHOSLUSM495S",
+          "name": "Existing Home Sales",
+          "frequency": "monthly"
+        },
+        {
+          "id": "MSPUS",
+          "name": "Median Sales Price of Houses Sold",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "CSUSHPINSA",
+          "name": "Case-Shiller Home Price Index (National)",
+          "frequency": "monthly"
+        },
+        {
+          "id": "SPCS20RSA",
+          "name": "Case-Shiller 20-City Composite",
+          "frequency": "monthly"
+        },
+        {
+          "id": "MORTGAGE30US",
+          "name": "30-Year Fixed Mortgage Rate",
+          "frequency": "weekly"
+        },
+        {
+          "id": "MORTGAGE15US",
+          "name": "15-Year Fixed Mortgage Rate",
+          "frequency": "weekly"
+        },
+        {
+          "id": "MORTGAGE5US",
+          "name": "5/1-Year ARM Rate",
+          "frequency": "weekly"
+        },
+        {
+          "id": "DRSFRMACBS",
+          "name": "Delinquency Rate on Single-Family Mortgages",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "RHORUSQ156N",
+          "name": "Homeownership Rate",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "RRVRUSQ156N",
+          "name": "Rental Vacancy Rate",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "MSACSR",
+          "name": "Monthly Supply of New Houses",
+          "frequency": "monthly"
+        }
+      ]
+    },
+    "consumer": {
+      "description": "Consumer sentiment and spending",
+      "series": [
+        {
+          "id": "UMCSENT",
+          "name": "University of Michigan Consumer Sentiment",
+          "frequency": "monthly"
+        },
+        {
+          "id": "UMCSENT1",
+          "name": "UMich Consumer Sentiment: Current Conditions",
+          "frequency": "monthly"
+        },
+        {
+          "id": "UMCSENT5",
+          "name": "UMich Consumer Sentiment: Expectations",
+          "frequency": "monthly"
+        },
+        {
+          "id": "CONCCONF",
+          "name": "Conference Board Consumer Confidence",
+          "frequency": "monthly"
+        },
+        {
+          "id": "CSCICP03USM665S",
+          "name": "Consumer Opinion Surveys: Confidence",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PCE",
+          "name": "Personal Consumption Expenditures",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PCEDG",
+          "name": "PCE: Durable Goods",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PCEND",
+          "name": "PCE: Nondurable Goods",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PCES",
+          "name": "PCE: Services",
+          "frequency": "monthly"
+        },
+        {
+          "id": "RSXFS",
+          "name": "Retail Sales: Total (Ex Food Services)",
+          "frequency": "monthly"
+        },
+        {
+          "id": "RETAILSMNSA",
+          "name": "Retail Sales: Total",
+          "frequency": "monthly"
+        },
+        {
+          "id": "RRSFS",
+          "name": "Real Retail Sales",
+          "frequency": "monthly"
+        },
+        {
+          "id": "DSPIC96",
+          "name": "Real Disposable Personal Income",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PSAVERT",
+          "name": "Personal Saving Rate",
+          "frequency": "monthly"
+        },
+        {
+          "id": "TDSP",
+          "name": "Household Debt Service Ratio",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "FODSP",
+          "name": "Financial Obligations Ratio",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "REVOLSL",
+          "name": "Revolving Consumer Credit",
+          "frequency": "monthly"
+        },
+        {
+          "id": "NONREVSL",
+          "name": "Non-Revolving Consumer Credit",
+          "frequency": "monthly"
+        },
+        {
+          "id": "TOTALSL",
+          "name": "Total Consumer Credit",
+          "frequency": "monthly"
+        },
+        {
+          "id": "CSINFT02USM460S",
+          "name": "Consumer Prices: Future Tendency (US)",
+          "frequency": "monthly"
+        }
+      ]
+    },
+    "business_investment": {
+      "description": "Business activity and investment",
+      "series": [
+        {
+          "id": "NEWORDER",
+          "name": "Manufacturers' New Orders: Durable Goods",
+          "frequency": "monthly"
+        },
+        {
+          "id": "DGORDER",
+          "name": "Durable Goods Orders",
+          "frequency": "monthly"
+        },
+        {
+          "id": "AMTMNO",
+          "name": "Manufacturers' New Orders: Total",
+          "frequency": "monthly"
+        },
+        {
+          "id": "ACDGNO",
+          "name": "Capital Goods Orders: Nondefense Ex Aircraft",
+          "frequency": "monthly"
+        },
+        {
+          "id": "ANDENO",
+          "name": "Capital Goods Orders: Nondefense",
+          "frequency": "monthly"
+        },
+        {
+          "id": "BUSLOANS",
+          "name": "Commercial and Industrial Loans",
+          "frequency": "weekly"
+        },
+        {
+          "id": "TOTCI",
+          "name": "Commercial and Industrial Loans (All Commercial Banks)",
+          "frequency": "monthly"
+        },
+        {
+          "id": "BOGZ1FL104122005Q",
+          "name": "Nonfinancial Corporate Business: Debt",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "NCBDBIQ027S",
+          "name": "Corporate Debt to GDP",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "PNFI",
+          "name": "Private Nonresidential Fixed Investment",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "PRFI",
+          "name": "Private Residential Fixed Investment",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "ISRATIO",
+          "name": "Total Business: Inventories to Sales Ratio",
+          "frequency": "monthly"
+        }
+      ]
+    },
+    "money_supply_credit": {
+      "description": "Monetary aggregates and credit conditions",
+      "series": [
+        {
+          "id": "M1SL",
+          "name": "M1 Money Stock",
+          "frequency": "monthly"
+        },
+        {
+          "id": "M2SL",
+          "name": "M2 Money Stock",
+          "frequency": "monthly"
+        },
+        {
+          "id": "WM2NS",
+          "name": "M2 Money Stock (Weekly)",
+          "frequency": "weekly"
+        },
+        {
+          "id": "M1V",
+          "name": "Velocity of M1 Money Stock",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "M2V",
+          "name": "Velocity of M2 Money Stock",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "WALCL",
+          "name": "Federal Reserve Total Assets",
+          "frequency": "weekly"
+        },
+        {
+          "id": "WTREGEN",
+          "name": "Treasury General Account Balance",
+          "frequency": "weekly"
+        },
+        {
+          "id": "RRPONTSYAWARD",
+          "name": "Reverse Repo Operations",
+          "frequency": "daily"
+        },
+        {
+          "id": "WLRRAL",
+          "name": "Reserve Balances with Fed",
+          "frequency": "weekly"
+        },
+        {
+          "id": "TOTRESNS",
+          "name": "Total Reserves of Depository Institutions",
+          "frequency": "monthly"
+        },
+        {
+          "id": "EXCSRESNS",
+          "name": "Excess Reserves of Depository Institutions",
+          "frequency": "monthly"
+        },
+        {
+          "id": "REQRESNS",
+          "name": "Required Reserves",
+          "frequency": "monthly"
+        },
+        {
+          "id": "BASE",
+          "name": "Monetary Base",
+          "frequency": "biweekly"
+        },
+        {
+          "id": "MULT",
+          "name": "Money Multiplier (M1)",
+          "frequency": "biweekly"
+        },
+        {
+          "id": "BOGMBASE",
+          "name": "Monetary Base (Total)",
+          "frequency": "monthly"
+        },
+        {
+          "id": "H8B1058NCBCMG",
+          "name": "Bank Credit",
+          "frequency": "weekly"
+        },
+        {
+          "id": "DRCCLACBS",
+          "name": "Delinquency Rate on Credit Card Loans",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "DRALACBS",
+          "name": "Delinquency Rate on All Loans",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "DRBLACBS",
+          "name": "Delinquency Rate on Business Loans",
+          "frequency": "quarterly"
+        }
+      ]
+    },
+    "trade_international": {
+      "description": "Trade and balance of payments",
+      "series": [
+        {
+          "id": "BOPGSTB",
+          "name": "Trade Balance: Goods and Services",
+          "frequency": "monthly"
+        },
+        {
+          "id": "BOPGTB",
+          "name": "Trade Balance: Goods",
+          "frequency": "monthly"
+        },
+        {
+          "id": "BOPSTB",
+          "name": "Trade Balance: Services",
+          "frequency": "monthly"
+        },
+        {
+          "id": "EXPGS",
+          "name": "Exports of Goods and Services",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "IMPGS",
+          "name": "Imports of Goods and Services",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "EXPGSC1",
+          "name": "Real Exports of Goods and Services",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "IMPGSC1",
+          "name": "Real Imports of Goods and Services",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "IEABC",
+          "name": "Current Account Balance",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "DTWEXBGS",
+          "name": "Trade Weighted US Dollar Index: Broad",
+          "frequency": "daily"
+        },
+        {
+          "id": "DTWEXAFEGS",
+          "name": "Trade Weighted US Dollar Index: Advanced Economies",
+          "frequency": "daily"
+        },
+        {
+          "id": "DTWEXEMEGS",
+          "name": "Trade Weighted US Dollar Index: Emerging Markets",
+          "frequency": "daily"
+        },
+        {
+          "id": "TWEXBGSMTH",
+          "name": "Trade Weighted US Dollar Index: Broad (Monthly)",
+          "frequency": "monthly"
+        }
+      ]
+    },
+    "financial_conditions": {
+      "description": "Financial stress and conditions indices",
+      "series": [
+        {
+          "id": "NFCI",
+          "name": "Chicago Fed National Financial Conditions Index",
+          "frequency": "weekly"
+        },
+        {
+          "id": "ANFCI",
+          "name": "Chicago Fed Adjusted NFCI",
+          "frequency": "weekly"
+        },
+        {
+          "id": "STLFSI4",
+          "name": "St. Louis Fed Financial Stress Index",
+          "frequency": "weekly"
+        },
+        {
+          "id": "KCFSI",
+          "name": "Kansas City Financial Stress Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "GSFCI",
+          "name": "Goldman Sachs Financial Conditions Index",
+          "frequency": "daily"
+        },
+        {
+          "id": "TEDRATE",
+          "name": "TED Spread",
+          "frequency": "daily"
+        },
+        {
+          "id": "BAMLH0A0HYM2",
+          "name": "High Yield Option-Adjusted Spread",
+          "frequency": "daily"
+        },
+        {
+          "id": "BAMLC0A0CM",
+          "name": "Investment Grade Corporate Bond Spread",
+          "frequency": "daily"
+        },
+        {
+          "id": "BAMLC0A4CBBB",
+          "name": "BBB Corporate Bond Spread",
+          "frequency": "daily"
+        },
+        {
+          "id": "BAMLH0A0HYM2EY",
+          "name": "High Yield Effective Yield",
+          "frequency": "daily"
+        },
+        {
+          "id": "AAA",
+          "name": "Moody's AAA Corporate Bond Yield",
+          "frequency": "daily"
+        },
+        {
+          "id": "BAA",
+          "name": "Moody's BAA Corporate Bond Yield",
+          "frequency": "daily"
+        },
+        {
+          "id": "DAAA",
+          "name": "Moody's AAA Corporate Bond Yield (Daily)",
+          "frequency": "daily"
+        },
+        {
+          "id": "DBAA",
+          "name": "Moody's BAA Corporate Bond Yield (Daily)",
+          "frequency": "daily"
+        },
+        {
+          "id": "VIXCLS",
+          "name": "CBOE Volatility Index (VIX)",
+          "frequency": "daily"
+        },
+        {
+          "id": "USSLIND",
+          "name": "Leading Index for the United States",
+          "frequency": "monthly"
+        },
+        {
+          "id": "CFNAI",
+          "name": "Chicago Fed National Activity Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "CFNAIMA3",
+          "name": "CFNAI 3-Month Moving Average",
+          "frequency": "monthly"
+        }
+      ]
+    },
+    "government_fiscal": {
+      "description": "Government finances and debt",
+      "series": [
+        {
+          "id": "FYFSD",
+          "name": "Federal Surplus or Deficit",
+          "frequency": "annual"
+        },
+        {
+          "id": "MTSDS133FMS",
+          "name": "Federal Surplus or Deficit (Monthly)",
+          "frequency": "monthly"
+        },
+        {
+          "id": "GFDEBTN",
+          "name": "Federal Debt: Total Public Debt",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "GFDEGDQ188S",
+          "name": "Federal Debt to GDP Ratio",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "FYGDP",
+          "name": "Federal Receipts as % of GDP",
+          "frequency": "annual"
+        },
+        {
+          "id": "FYOIGDA188S",
+          "name": "Federal Outlays as % of GDP",
+          "frequency": "annual"
+        },
+        {
+          "id": "A091RC1Q027SBEA",
+          "name": "Federal Government Current Receipts",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "W068RCQ027SBEA",
+          "name": "Federal Government Current Expenditures",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "SLEXPND",
+          "name": "State and Local Government Expenditures",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "FDHBFRBN",
+          "name": "Federal Debt Held by Federal Reserve",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "FDHBFIN",
+          "name": "Federal Debt Held by Foreign Investors",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "FDHBPIN",
+          "name": "Federal Debt Held by Private Investors",
+          "frequency": "quarterly"
+        }
+      ]
+    },
+    "pmi_surveys": {
+      "description": "Purchasing managers indices and business surveys",
+      "series": [
+        {
+          "id": "MANEMP",
+          "name": "ISM Manufacturing Employment Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "NAPMNOI",
+          "name": "ISM Manufacturing New Orders Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "NAPMPI",
+          "name": "ISM Manufacturing Production Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "NAPMPRI",
+          "name": "ISM Manufacturing Prices Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "NAPMSDI",
+          "name": "ISM Manufacturing Supplier Deliveries",
+          "frequency": "monthly"
+        },
+        {
+          "id": "NAPM",
+          "name": "ISM Manufacturing PMI",
+          "frequency": "monthly"
+        },
+        {
+          "id": "NMFBAI",
+          "name": "ISM Non-Manufacturing Business Activity",
+          "frequency": "monthly"
+        },
+        {
+          "id": "NMFCI",
+          "name": "ISM Non-Manufacturing NMI",
+          "frequency": "monthly"
+        },
+        {
+          "id": "BSCICP03USM665S",
+          "name": "Business Tendency Surveys: Manufacturing",
+          "frequency": "monthly"
+        },
+        {
+          "id": "GACDFSA066MSFRBPHI",
+          "name": "Philly Fed Manufacturing Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "GACDISA066MSFRBNY",
+          "name": "Empire State Manufacturing Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "AIABORQ",
+          "name": "AIA Architecture Billings Index",
+          "frequency": "monthly"
+        }
+      ]
+    },
+    "commodities_energy": {
+      "description": "Commodity and energy prices from FRED",
+      "series": [
+        {
+          "id": "DCOILWTICO",
+          "name": "WTI Crude Oil Price",
+          "frequency": "daily"
+        },
+        {
+          "id": "DCOILBRENTEU",
+          "name": "Brent Crude Oil Price",
+          "frequency": "daily"
+        },
+        {
+          "id": "DHHNGSP",
+          "name": "Henry Hub Natural Gas Price",
+          "frequency": "daily"
+        },
+        {
+          "id": "GASREGW",
+          "name": "US Regular Gasoline Price",
+          "frequency": "weekly"
+        },
+        {
+          "id": "DEXUSEU",
+          "name": "EUR/USD Exchange Rate",
+          "frequency": "daily"
+        },
+        {
+          "id": "DEXJPUS",
+          "name": "JPY/USD Exchange Rate",
+          "frequency": "daily"
+        },
+        {
+          "id": "DEXUSUK",
+          "name": "GBP/USD Exchange Rate",
+          "frequency": "daily"
+        },
+        {
+          "id": "DEXSZUS",
+          "name": "CHF/USD Exchange Rate",
+          "frequency": "daily"
+        },
+        {
+          "id": "DEXCAUS",
+          "name": "CAD/USD Exchange Rate",
+          "frequency": "daily"
+        },
+        {
+          "id": "DEXUSAL",
+          "name": "AUD/USD Exchange Rate",
+          "frequency": "daily"
+        },
+        {
+          "id": "GOLDAMGBD228NLBM",
+          "name": "Gold Price (London)",
+          "frequency": "daily"
+        },
+        {
+          "id": "PPICRM",
+          "name": "PPI Crude Materials",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PFOODINDEXM",
+          "name": "Global Food Price Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PNRGINDEXM",
+          "name": "Global Energy Price Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PMETAINDEXM",
+          "name": "Global Metals Price Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "PALLFNFINDEXM",
+          "name": "All Commodities Price Index",
+          "frequency": "monthly"
+        }
+      ]
+    },
+    "regional_fed": {
+      "description": "Regional Federal Reserve Bank indicators",
+      "series": [
+        {
+          "id": "GACDFSA066MSFRBPHI",
+          "name": "Philadelphia Fed Manufacturing Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "GACDISA066MSFRBNY",
+          "name": "NY Fed Empire State Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "GACDISA066MSFRBRIC",
+          "name": "Richmond Fed Manufacturing Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "GACDISA066MSFRBDAL",
+          "name": "Dallas Fed Manufacturing Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "GACDISA066MSFRBKC",
+          "name": "Kansas City Fed Manufacturing Index",
+          "frequency": "monthly"
+        },
+        {
+          "id": "GDPNOW",
+          "name": "Atlanta Fed GDPNow",
+          "frequency": "irregular"
+        },
+        {
+          "id": "WRBWFRBL",
+          "name": "Fed H.8 Assets: Total",
+          "frequency": "weekly"
+        }
+      ]
+    },
+    "demographics_population": {
+      "description": "Population and demographic data",
+      "series": [
+        {
+          "id": "POPTHM",
+          "name": "Population",
+          "frequency": "monthly"
+        },
+        {
+          "id": "CLF16OV",
+          "name": "Civilian Labor Force",
+          "frequency": "monthly"
+        },
+        {
+          "id": "CE16OV",
+          "name": "Civilian Employment",
+          "frequency": "monthly"
+        },
+        {
+          "id": "UNEMPLOY",
+          "name": "Unemployed Population",
+          "frequency": "monthly"
+        },
+        {
+          "id": "LNS11300060",
+          "name": "Labor Force Participation Rate: 25-54",
+          "frequency": "monthly"
+        },
+        {
+          "id": "LNS11300001",
+          "name": "Labor Force Participation Rate: Men",
+          "frequency": "monthly"
+        },
+        {
+          "id": "LNS11300002",
+          "name": "Labor Force Participation Rate: Women",
+          "frequency": "monthly"
+        }
+      ]
+    },
+    "productivity": {
+      "description": "Productivity and unit labor costs",
+      "series": [
+        {
+          "id": "OPHNFB",
+          "name": "Nonfarm Business Sector: Output Per Hour",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "ULCNFB",
+          "name": "Nonfarm Business Sector: Unit Labor Cost",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "COMPNFB",
+          "name": "Nonfarm Business Sector: Compensation Per Hour",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "PRS85006092",
+          "name": "Nonfarm Business Sector: Labor Productivity",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "MFPNFBS",
+          "name": "Multifactor Productivity: Private Nonfarm Business",
+          "frequency": "annual"
+        }
+      ]
+    },
+    "bank_lending": {
+      "description": "Bank lending standards and conditions",
+      "series": [
+        {
+          "id": "DRTSCILM",
+          "name": "Net % Banks Tightening Standards for C&I Loans (Large)",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "DRTSCIS",
+          "name": "Net % Banks Tightening Standards for C&I Loans (Small)",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "DRTSCLCC",
+          "name": "Net % Banks Tightening Standards for Credit Cards",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "SUBLPDRCSC",
+          "name": "Subprime Auto Loan Delinquency Rate",
+          "frequency": "quarterly"
+        },
+        {
+          "id": "STDSAUTO",
+          "name": "Net % Banks Tightening Standards for Auto Loans",
+          "frequency": "quarterly"
+        }
+      ]
+    }
+  },
+  "international_series": {
+    "_comment": "International economic data - primarily accessed via DBnomics or as FRED mirrors",
+    "eurozone": {
+      "description": "Euro Area economic indicators",
+      "series": [
+        {
+          "id": "ECBMRRFR",
+          "name": "ECB Main Refinancing Rate",
+          "source": "fred"
+        },
+        {
+          "id": "ECBDFR",
+          "name": "ECB Deposit Facility Rate",
+          "source": "fred"
+        },
+        {
+          "id": "IR3TIB01EZM156N",
+          "name": "3-Month Euribor",
+          "source": "fred"
+        },
+        {
+          "id": "CLVMNACSCAB1GQEA19",
+          "name": "Real GDP: Euro Area",
+          "source": "fred"
+        },
+        {
+          "id": "LRHUTTTTEZM156S",
+          "name": "Unemployment Rate: Euro Area",
+          "source": "fred"
+        },
+        {
+          "id": "CP0000EZ19M086NEST",
+          "name": "HICP: Euro Area",
+          "source": "fred"
+        },
+        {
+          "id": "CPHPTT01EZM659N",
+          "name": "CPI: Euro Area",
+          "source": "fred"
+        },
+        {
+          "id": "CSCICP02EZM460S",
+          "name": "Consumer Confidence: Euro Area",
+          "source": "fred"
+        },
+        {
+          "id": "BSCICP02EZM460S",
+          "name": "Business Confidence: Euro Area",
+          "source": "fred"
+        },
+        {
+          "id": "PRMNTO01EZM661S",
+          "name": "Manufacturing PMI: Euro Area",
+          "source": "fred"
+        },
+        {
+          "id": "CP00MI15EA20M086NEST",
+          "name": "HICP: Euro Area (20 Countries)",
+          "source": "fred"
+        }
+      ]
+    },
+    "germany": {
+      "description": "German economic indicators",
+      "series": [
+        {
+          "id": "CLVMNACSCAB1GQDE",
+          "name": "Real GDP: Germany",
+          "source": "fred"
+        },
+        {
+          "id": "LRHUTTTTDEM156S",
+          "name": "Unemployment Rate: Germany",
+          "source": "fred"
+        },
+        {
+          "id": "DEUCPIALLMINMEI",
+          "name": "CPI: Germany",
+          "source": "fred"
+        },
+        {
+          "id": "PRMNTO01DEM661S",
+          "name": "Manufacturing PMI: Germany",
+          "source": "fred"
+        },
+        {
+          "id": "BSCICP02DEM460S",
+          "name": "Ifo Business Climate: Germany",
+          "source": "fred"
+        },
+        {
+          "id": "CSCICP02DEM460S",
+          "name": "Consumer Confidence: Germany",
+          "source": "fred"
+        }
+      ]
+    },
+    "united_kingdom": {
+      "description": "UK economic indicators",
+      "series": [
+        {
+          "id": "CLVMNACSCAB1GQUK",
+          "name": "Real GDP: UK",
+          "source": "fred"
+        },
+        {
+          "id": "LRHUTTTTGBM156S",
+          "name": "Unemployment Rate: UK",
+          "source": "fred"
+        },
+        {
+          "id": "GBRCPIALLMINMEI",
+          "name": "CPI: UK",
+          "source": "fred"
+        },
+        {
+          "id": "CPHPTT01GBM659N",
+          "name": "CPI Inflation: UK",
+          "source": "fred"
+        },
+        {
+          "id": "IRSTCB01GBM156N",
+          "name": "Bank of England Rate",
+          "source": "fred"
+        },
+        {
+          "id": "CSCICP02GBM460S",
+          "name": "Consumer Confidence: UK",
+          "source": "fred"
+        },
+        {
+          "id": "IUDSOIA",
+          "name": "SONIA Rate (UK Overnight)",
+          "source": "fred"
+        }
+      ]
+    },
+    "japan": {
+      "description": "Japanese economic indicators",
+      "series": [
+        {
+          "id": "JPNRGDPEXP",
+          "name": "Real GDP: Japan",
+          "source": "fred"
+        },
+        {
+          "id": "LRHUTTTTJPM156S",
+          "name": "Unemployment Rate: Japan",
+          "source": "fred"
+        },
+        {
+          "id": "JPNCPIALLMINMEI",
+          "name": "CPI: Japan",
+          "source": "fred"
+        },
+        {
+          "id": "IRSTCI01JPM156N",
+          "name": "Japan Call Rate",
+          "source": "fred"
+        },
+        {
+          "id": "IR3TIB01JPM156N",
+          "name": "3-Month Interbank Rate: Japan",
+          "source": "fred"
+        },
+        {
+          "id": "CCRETT01JPM661N",
+          "name": "Consumer Credit: Japan",
+          "source": "fred"
+        },
+        {
+          "id": "CSCICP02JPM460S",
+          "name": "Consumer Confidence: Japan",
+          "source": "fred"
+        },
+        {
+          "id": "PRMNTO01JPM661S",
+          "name": "Manufacturing PMI: Japan",
+          "source": "fred"
+        }
+      ]
+    },
+    "china": {
+      "description": "Chinese economic indicators",
+      "series": [
+        {
+          "id": "MKTGDPCNA646NWDB",
+          "name": "GDP: China",
+          "source": "fred"
+        },
+        {
+          "id": "CHNCPIALLMINMEI",
+          "name": "CPI: China",
+          "source": "fred"
+        },
+        {
+          "id": "PRMNTO01CNM661S",
+          "name": "Manufacturing PMI: China",
+          "source": "fred"
+        },
+        {
+          "id": "CSCICP02CNM460S",
+          "name": "Consumer Confidence: China",
+          "source": "fred"
+        },
+        {
+          "id": "LRHUTTTTCNM156S",
+          "name": "Unemployment Rate: China",
+          "source": "fred"
+        },
+        {
+          "id": "XTEXVA01CNM667S",
+          "name": "Exports: China",
+          "source": "fred"
+        },
+        {
+          "id": "XTIMVA01CNM667S",
+          "name": "Imports: China",
+          "source": "fred"
+        }
+      ]
+    },
+    "canada": {
+      "description": "Canadian economic indicators",
+      "series": [
+        {
+          "id": "NGDPRSAXDCCAQ",
+          "name": "Real GDP: Canada",
+          "source": "fred"
+        },
+        {
+          "id": "LRUNTTTTCAM156S",
+          "name": "Unemployment Rate: Canada",
+          "source": "fred"
+        },
+        {
+          "id": "CPALTT01CAM657N",
+          "name": "CPI: Canada",
+          "source": "fred"
+        },
+        {
+          "id": "IRSTCB01CAM156N",
+          "name": "Bank of Canada Rate",
+          "source": "fred"
+        },
+        {
+          "id": "IR3TIB01CAM156N",
+          "name": "3-Month Interbank Rate: Canada",
+          "source": "fred"
+        },
+        {
+          "id": "CSCICP02CAM460S",
+          "name": "Consumer Confidence: Canada",
+          "source": "fred"
+        }
+      ]
+    },
+    "australia": {
+      "description": "Australian economic indicators",
+      "series": [
+        {
+          "id": "LRUNTTTTAUM156S",
+          "name": "Unemployment Rate: Australia",
+          "source": "fred"
+        },
+        {
+          "id": "AUSCPIALLQINMEI",
+          "name": "CPI: Australia",
+          "source": "fred"
+        },
+        {
+          "id": "IRSTCB01AUM156N",
+          "name": "Reserve Bank of Australia Rate",
+          "source": "fred"
+        },
+        {
+          "id": "CSCICP02AUM460S",
+          "name": "Consumer Confidence: Australia",
+          "source": "fred"
+        }
+      ]
+    },
+    "switzerland": {
+      "description": "Swiss economic indicators",
+      "series": [
+        {
+          "id": "CLVMNACSCAB1GQCH",
+          "name": "Real GDP: Switzerland",
+          "source": "fred"
+        },
+        {
+          "id": "LRHUTTTTCHM156S",
+          "name": "Unemployment Rate: Switzerland",
+          "source": "fred"
+        },
+        {
+          "id": "CHECPIALLMINMEI",
+          "name": "CPI: Switzerland",
+          "source": "fred"
+        },
+        {
+          "id": "IR3TIB01CHM156N",
+          "name": "3-Month Interbank Rate: Switzerland",
+          "source": "fred"
+        },
+        {
+          "id": "CSCICP02CHM460S",
+          "name": "Consumer Confidence: Switzerland",
+          "source": "fred"
+        },
+        {
+          "id": "CHECPIALLMINME",
+          "name": "CPI: Switzerland (Alt)",
+          "source": "fred"
+        },
+        {
+          "id": "CSCICP02CHQ460S",
+          "name": "Consumer Confidence: Switzerland (Quarterly)",
+          "source": "fred"
+        }
+      ]
+    },
+    "other_developed": {
+      "description": "Other developed market indicators",
+      "series": [
+        {
+          "id": "ITACPIALLMINMEI",
+          "name": "CPI: Italy",
+          "source": "fred"
+        },
+        {
+          "id": "ESPCPIALLMINMEI",
+          "name": "CPI: Spain",
+          "source": "fred"
+        },
+        {
+          "id": "FRACPIALLMINMEI",
+          "name": "CPI: France",
+          "source": "fred"
+        },
+        {
+          "id": "NLDCPIALLMINMEI",
+          "name": "CPI: Netherlands",
+          "source": "fred"
+        },
+        {
+          "id": "BELBISXM",
+          "name": "Business Confidence: Belgium",
+          "source": "fred"
+        },
+        {
+          "id": "SWECPIALLMINMEI",
+          "name": "CPI: Sweden",
+          "source": "fred"
+        },
+        {
+          "id": "NORCPIALLQINMEI",
+          "name": "CPI: Norway",
+          "source": "fred"
+        }
+      ]
+    },
+    "emerging_markets": {
+      "description": "Emerging market indicators",
+      "series": [
+        {
+          "id": "BRACPIALLMINMEI",
+          "name": "CPI: Brazil",
+          "source": "fred"
+        },
+        {
+          "id": "INDCPIALLMINMEI",
+          "name": "CPI: India",
+          "source": "fred"
+        },
+        {
+          "id": "MEXCPIALLMINMEI",
+          "name": "CPI: Mexico",
+          "source": "fred"
+        },
+        {
+          "id": "KORCPIALLMINMEI",
+          "name": "CPI: South Korea",
+          "source": "fred"
+        },
+        {
+          "id": "TURCPIALLMINMEI",
+          "name": "CPI: Turkey",
+          "source": "fred"
+        },
+        {
+          "id": "ZAFCPIALLMINMEI",
+          "name": "CPI: South Africa",
+          "source": "fred"
+        },
+        {
+          "id": "POLCPIALLMINMEI",
+          "name": "CPI: Poland",
+          "source": "fred"
+        },
+        {
+          "id": "IDNCPIALLMINMEI",
+          "name": "CPI: Indonesia",
+          "source": "fred"
+        },
+        {
+          "id": "IRSTCI01BRM156N",
+          "name": "Policy Rate: Brazil",
+          "source": "fred"
+        },
+        {
+          "id": "IRSTCI01MXM156N",
+          "name": "Policy Rate: Mexico",
+          "source": "fred"
+        },
+        {
+          "id": "IRSTCI01INM156N",
+          "name": "Policy Rate: India",
+          "source": "fred"
+        }
+      ]
+    },
+    "global_aggregates": {
+      "description": "World and regional aggregates",
+      "series": [
+        {
+          "id": "NYGDPMKTPCDWLD",
+          "name": "World GDP",
+          "source": "fred"
+        },
+        {
+          "id": "SIPOVGINIUSA",
+          "name": "Gini Index: US",
+          "source": "fred"
+        },
+        {
+          "id": "SLGLOBALINDEXM",
+          "name": "Global Leading Economic Index",
+          "source": "fred"
+        }
+      ]
+    }
+  },
+  "dbnomics_exclusive": {
+    "_comment": "Series best accessed via DBnomics (not in FRED or superior data in DBnomics)",
+    "ecb_direct": {
+      "description": "ECB direct data feeds - more timely than FRED mirrors",
+      "provider": "ECB",
+      "series": [
+        {
+          "id": "ECB/FM/M.U2.EUR.4F.KR.MRR_FR.LEV",
+          "name": "ECB Main Refinancing Rate"
+        },
+        {
+          "id": "ECB/FM/M.U2.EUR.4F.KR.DFR.LEV",
+          "name": "ECB Deposit Facility Rate"
+        },
+        {
+          "id": "ECB/FM/M.U2.EUR.4F.KR.MLFR.LEV",
+          "name": "ECB Marginal Lending Facility Rate"
+        },
+        {
+          "id": "ECB/EXR/D.USD.EUR.SP00.A",
+          "name": "EUR/USD Exchange Rate"
+        },
+        {
+          "id": "ECB/EXR/D.GBP.EUR.SP00.A",
+          "name": "EUR/GBP Exchange Rate"
+        },
+        {
+          "id": "ECB/EXR/D.JPY.EUR.SP00.A",
+          "name": "EUR/JPY Exchange Rate"
+        },
+        {
+          "id": "ECB/EXR/D.CHF.EUR.SP00.A",
+          "name": "EUR/CHF Exchange Rate"
+        },
+        {
+          "id": "ECB/EXR/D.CNY.EUR.SP00.A",
+          "name": "EUR/CNY Exchange Rate"
+        },
+        {
+          "id": "ECB/BSI/M.U2.N.A.A20.A.1.U2.1000.Z01.E",
+          "name": "Euro Area Money Supply M3"
+        }
+      ]
+    },
+    "bis_data": {
+      "description": "Bank for International Settlements data",
+      "provider": "BIS",
+      "series": [
+        {
+          "id": "BIS/WS_CBPOL/D.US",
+          "name": "Policy Rate: US"
+        },
+        {
+          "id": "BIS/WS_CBPOL/D.XM",
+          "name": "Policy Rate: Euro Area"
+        },
+        {
+          "id": "BIS/WS_CBPOL/D.GB",
+          "name": "Policy Rate: UK"
+        },
+        {
+          "id": "BIS/WS_CBPOL/D.JP",
+          "name": "Policy Rate: Japan"
+        },
+        {
+          "id": "BIS/WS_CBPOL/D.CH",
+          "name": "Policy Rate: Switzerland"
+        },
+        {
+          "id": "BIS/WS_CBPOL/D.CA",
+          "name": "Policy Rate: Canada"
+        },
+        {
+          "id": "BIS/WS_CBPOL/D.AU",
+          "name": "Policy Rate: Australia"
+        },
+        {
+          "id": "BIS/WS_CBPOL/D.CN",
+          "name": "Policy Rate: China"
+        },
+        {
+          "id": "BIS/WS_CBPOL/D.IN",
+          "name": "Policy Rate: India"
+        },
+        {
+          "id": "BIS/WS_CBPOL/D.BR",
+          "name": "Policy Rate: Brazil"
+        },
+        {
+          "id": "BIS/WS_CBPOL/D.MX",
+          "name": "Policy Rate: Mexico"
+        },
+        {
+          "id": "BIS/WS_CBPOL/D.KR",
+          "name": "Policy Rate: South Korea"
+        },
+        {
+          "id": "BIS/WS_CBPOL/D.ZA",
+          "name": "Policy Rate: South Africa"
+        },
+        {
+          "id": "BIS/WS_CBPOL/D.TR",
+          "name": "Policy Rate: Turkey"
+        },
+        {
+          "id": "BIS/WS_CBPOL/D.ID",
+          "name": "Policy Rate: Indonesia"
+        },
+        {
+          "id": "BIS/WS_CBPOL/D.SE",
+          "name": "Policy Rate: Sweden"
+        },
+        {
+          "id": "BIS/WS_CBPOL/D.NO",
+          "name": "Policy Rate: Norway"
+        },
+        {
+          "id": "BIS/WS_CBPOL/D.NZ",
+          "name": "Policy Rate: New Zealand"
+        },
+        {
+          "id": "BIS/WS_EER/M.N.B.US",
+          "name": "Effective Exchange Rate: US"
+        },
+        {
+          "id": "BIS/WS_EER/M.N.B.XM",
+          "name": "Effective Exchange Rate: Euro Area"
+        },
+        {
+          "id": "BIS/WS_EER/M.N.B.GB",
+          "name": "Effective Exchange Rate: UK"
+        },
+        {
+          "id": "BIS/WS_EER/M.N.B.JP",
+          "name": "Effective Exchange Rate: Japan"
+        },
+        {
+          "id": "BIS/WS_EER/M.N.B.CH",
+          "name": "Effective Exchange Rate: Switzerland"
+        },
+        {
+          "id": "BIS/WS_EER/M.N.B.CN",
+          "name": "Effective Exchange Rate: China"
+        },
+        {
+          "id": "BIS/WS_EER/M.N.B.CA",
+          "name": "Effective Exchange Rate: Canada"
+        },
+        {
+          "id": "BIS/WS_EER/M.N.B.AU",
+          "name": "Effective Exchange Rate: Australia"
+        },
+        {
+          "id": "BIS/WS_EER/M.N.B.KR",
+          "name": "Effective Exchange Rate: South Korea"
+        },
+        {
+          "id": "BIS/WS_EER/M.N.B.IN",
+          "name": "Effective Exchange Rate: India"
+        },
+        {
+          "id": "BIS/WS_EER/M.N.B.BR",
+          "name": "Effective Exchange Rate: Brazil"
+        },
+        {
+          "id": "BIS/WS_EER/M.N.B.MX",
+          "name": "Effective Exchange Rate: Mexico"
+        },
+        {
+          "id": "BIS/WS_CREDIT/Q.US.P.A.M.XDC.A",
+          "name": "Total Credit: US"
+        },
+        {
+          "id": "BIS/WS_CREDIT/Q.XM.P.A.M.XDC.A",
+          "name": "Total Credit: Euro Area"
+        },
+        {
+          "id": "BIS/WS_CREDIT/Q.GB.P.A.M.XDC.A",
+          "name": "Total Credit: UK"
+        },
+        {
+          "id": "BIS/WS_CREDIT/Q.JP.P.A.M.XDC.A",
+          "name": "Total Credit: Japan"
+        },
+        {
+          "id": "BIS/WS_CREDIT/Q.CN.P.A.M.XDC.A",
+          "name": "Total Credit: China"
+        },
+        {
+          "id": "BIS/WS_CREDIT/Q.CA.P.A.M.XDC.A",
+          "name": "Total Credit: Canada"
+        },
+        {
+          "id": "BIS/WS_CREDIT/Q.AU.P.A.M.XDC.A",
+          "name": "Total Credit: Australia"
+        },
+        {
+          "id": "BIS/WS_DSR/Q.US.H.C.A",
+          "name": "Debt Service Ratio: US Households"
+        },
+        {
+          "id": "BIS/WS_DSR/Q.GB.H.C.A",
+          "name": "Debt Service Ratio: UK Households"
+        },
+        {
+          "id": "BIS/WS_DSR/Q.CA.H.C.A",
+          "name": "Debt Service Ratio: Canada Households"
+        },
+        {
+          "id": "BIS/WS_DSR/Q.AU.H.C.A",
+          "name": "Debt Service Ratio: Australia Households"
+        },
+        {
+          "id": "BIS/WS_SPP/Q.US.N.628",
+          "name": "Property Prices: US"
+        },
+        {
+          "id": "BIS/WS_SPP/Q.GB.N.628",
+          "name": "Property Prices: UK"
+        },
+        {
+          "id": "BIS/WS_SPP/Q.DE.N.628",
+          "name": "Property Prices: Germany"
+        },
+        {
+          "id": "BIS/WS_SPP/Q.JP.N.628",
+          "name": "Property Prices: Japan"
+        },
+        {
+          "id": "BIS/WS_SPP/Q.CN.N.628",
+          "name": "Property Prices: China"
+        },
+        {
+          "id": "BIS/WS_SPP/Q.CA.N.628",
+          "name": "Property Prices: Canada"
+        },
+        {
+          "id": "BIS/WS_SPP/Q.AU.N.628",
+          "name": "Property Prices: Australia"
+        },
+        {
+          "id": "BIS/WS_SPP/Q.FR.N.628",
+          "name": "Property Prices: France"
+        },
+        {
+          "id": "BIS/WS_SPP/Q.IT.N.628",
+          "name": "Property Prices: Italy"
+        },
+        {
+          "id": "BIS/WS_SPP/Q.ES.N.628",
+          "name": "Property Prices: Spain"
+        },
+        {
+          "id": "BIS/WS_SPP/Q.NL.N.628",
+          "name": "Property Prices: Netherlands"
+        },
+        {
+          "id": "BIS/WS_SPP/Q.CH.N.628",
+          "name": "Property Prices: Switzerland"
+        },
+        {
+          "id": "BIS/WS_SPP/Q.SE.N.628",
+          "name": "Property Prices: Sweden"
+        },
+        {
+          "id": "BIS/WS_SPP/Q.KR.N.628",
+          "name": "Property Prices: South Korea"
+        }
+      ]
+    },
+    "oecd": {
+      "description": "OECD economic indicators",
+      "series": [
+        {
+          "id": "OECD/MEI_CLI/LOLITOAA.USA.M",
+          "name": "Leading Indicator: US"
+        },
+        {
+          "id": "OECD/MEI_CLI/LOLITOAA.DEU.M",
+          "name": "Leading Indicator: Germany"
+        },
+        {
+          "id": "OECD/MEI_CLI/LOLITOAA.JPN.M",
+          "name": "Leading Indicator: Japan"
+        },
+        {
+          "id": "OECD/MEI_CLI/LOLITOAA.GBR.M",
+          "name": "Leading Indicator: UK"
+        },
+        {
+          "id": "OECD/MEI_CLI/LOLITOAA.FRA.M",
+          "name": "Leading Indicator: France"
+        },
+        {
+          "id": "OECD/MEI_CLI/LOLITOAA.ITA.M",
+          "name": "Leading Indicator: Italy"
+        },
+        {
+          "id": "OECD/MEI_CLI/LOLITOAA.CHN.M",
+          "name": "Leading Indicator: China"
+        },
+        {
+          "id": "OECD/MEI_CLI/LOLITOAA.CAN.M",
+          "name": "Leading Indicator: Canada"
+        },
+        {
+          "id": "OECD/MEI_CLI/LOLITOAA.AUS.M",
+          "name": "Leading Indicator: Australia"
+        },
+        {
+          "id": "OECD/MEI_CLI/LOLITOAA.BRA.M",
+          "name": "Leading Indicator: Brazil"
+        },
+        {
+          "id": "OECD/MEI_CLI/LOLITOAA.IND.M",
+          "name": "Leading Indicator: India"
+        },
+        {
+          "id": "OECD/MEI_CLI/LOLITOAA.MEX.M",
+          "name": "Leading Indicator: Mexico"
+        },
+        {
+          "id": "OECD/MEI_CLI/LOLITOAA.KOR.M",
+          "name": "Leading Indicator: South Korea"
+        },
+        {
+          "id": "OECD/MEI_CLI/LOLITOAA.OECD.M",
+          "name": "Leading Indicator: OECD"
+        },
+        {
+          "id": "OECD/MEI_CLI/LOLITOAA.G7M.M",
+          "name": "Leading Indicator: G7"
+        },
+        {
+          "id": "OECD/KEI/LRUNTTTT.USA.ST.M",
+          "name": "Unemployment: US"
+        },
+        {
+          "id": "OECD/KEI/LRUNTTTT.DEU.ST.M",
+          "name": "Unemployment: Germany"
+        },
+        {
+          "id": "OECD/KEI/LRUNTTTT.JPN.ST.M",
+          "name": "Unemployment: Japan"
+        },
+        {
+          "id": "OECD/KEI/LRUNTTTT.GBR.ST.M",
+          "name": "Unemployment: UK"
+        },
+        {
+          "id": "OECD/KEI/LRUNTTTT.FRA.ST.M",
+          "name": "Unemployment: France"
+        },
+        {
+          "id": "OECD/KEI/LRUNTTTT.ITA.ST.M",
+          "name": "Unemployment: Italy"
+        },
+        {
+          "id": "OECD/KEI/LRUNTTTT.CAN.ST.M",
+          "name": "Unemployment: Canada"
+        },
+        {
+          "id": "OECD/KEI/LRUNTTTT.AUS.ST.M",
+          "name": "Unemployment: Australia"
+        },
+        {
+          "id": "OECD/KEI/LRUNTTTT.CHE.ST.M",
+          "name": "Unemployment: Switzerland"
+        },
+        {
+          "id": "OECD/KEI/LRUNTTTT.CHN.ST.M",
+          "name": "Unemployment: China"
+        },
+        {
+          "id": "OECD/KEI/LRUNTTTT.BRA.ST.M",
+          "name": "Unemployment: Brazil"
+        },
+        {
+          "id": "OECD/KEI/LRUNTTTT.MEX.ST.M",
+          "name": "Unemployment: Mexico"
+        },
+        {
+          "id": "OECD/KEI/LRUNTTTT.KOR.ST.M",
+          "name": "Unemployment: South Korea"
+        },
+        {
+          "id": "OECD/KEI/LRUNTTTT.OECD.ST.M",
+          "name": "Unemployment: OECD"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.USA.GP.M",
+          "name": "CPI: US"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.DEU.GP.M",
+          "name": "CPI: Germany"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.JPN.GP.M",
+          "name": "CPI: Japan"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.GBR.GP.M",
+          "name": "CPI: UK"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.FRA.GP.M",
+          "name": "CPI: France"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.ITA.GP.M",
+          "name": "CPI: Italy"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.CAN.GP.M",
+          "name": "CPI: Canada"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.AUS.GP.Q",
+          "name": "CPI: Australia"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.CHE.GP.M",
+          "name": "CPI: Switzerland"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.CHN.GP.M",
+          "name": "CPI: China"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.BRA.GP.M",
+          "name": "CPI: Brazil"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.MEX.GP.M",
+          "name": "CPI: Mexico"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.IND.GP.M",
+          "name": "CPI: India"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.KOR.GP.M",
+          "name": "CPI: South Korea"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.ZAF.GP.M",
+          "name": "CPI: South Africa"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.TUR.GP.M",
+          "name": "CPI: Turkey"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.IDN.GP.M",
+          "name": "CPI: Indonesia"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.POL.GP.M",
+          "name": "CPI: Poland"
+        },
+        {
+          "id": "OECD/KEI/CPALTT01.EA19.GP.M",
+          "name": "CPI: Euro Area"
+        },
+        {
+          "id": "OECD/KEI/PRINTO01.USA.GP.M",
+          "name": "Industrial Production: US"
+        },
+        {
+          "id": "OECD/KEI/PRINTO01.DEU.GP.M",
+          "name": "Industrial Production: Germany"
+        },
+        {
+          "id": "OECD/KEI/PRINTO01.JPN.GP.M",
+          "name": "Industrial Production: Japan"
+        },
+        {
+          "id": "OECD/KEI/PRINTO01.GBR.GP.M",
+          "name": "Industrial Production: UK"
+        },
+        {
+          "id": "OECD/KEI/PRINTO01.FRA.GP.M",
+          "name": "Industrial Production: France"
+        },
+        {
+          "id": "OECD/KEI/PRINTO01.ITA.GP.M",
+          "name": "Industrial Production: Italy"
+        },
+        {
+          "id": "OECD/KEI/PRINTO01.CHN.GP.M",
+          "name": "Industrial Production: China"
+        },
+        {
+          "id": "OECD/KEI/CSCICP02.USA.GP.M",
+          "name": "Consumer Confidence: US"
+        },
+        {
+          "id": "OECD/KEI/CSCICP02.DEU.GP.M",
+          "name": "Consumer Confidence: Germany"
+        },
+        {
+          "id": "OECD/KEI/CSCICP02.JPN.GP.M",
+          "name": "Consumer Confidence: Japan"
+        },
+        {
+          "id": "OECD/KEI/CSCICP02.GBR.GP.M",
+          "name": "Consumer Confidence: UK"
+        },
+        {
+          "id": "OECD/KEI/CSCICP02.FRA.GP.M",
+          "name": "Consumer Confidence: France"
+        },
+        {
+          "id": "OECD/KEI/CSCICP02.CAN.GP.M",
+          "name": "Consumer Confidence: Canada"
+        },
+        {
+          "id": "OECD/KEI/CSCICP02.AUS.GP.M",
+          "name": "Consumer Confidence: Australia"
+        },
+        {
+          "id": "OECD/KEI/CSCICP02.CHE.GP.M",
+          "name": "Consumer Confidence: Switzerland"
+        },
+        {
+          "id": "OECD/KEI/CSCICP02.CHN.GP.M",
+          "name": "Consumer Confidence: China"
+        },
+        {
+          "id": "OECD/KEI/BSCICP02.USA.GP.M",
+          "name": "Business Confidence: US"
+        },
+        {
+          "id": "OECD/KEI/BSCICP02.DEU.GP.M",
+          "name": "Business Confidence: Germany"
+        },
+        {
+          "id": "OECD/KEI/BSCICP02.JPN.GP.M",
+          "name": "Business Confidence: Japan"
+        },
+        {
+          "id": "OECD/KEI/BSCICP02.GBR.GP.M",
+          "name": "Business Confidence: UK"
+        },
+        {
+          "id": "OECD/KEI/BSCICP02.FRA.GP.M",
+          "name": "Business Confidence: France"
+        },
+        {
+          "id": "OECD/KEI/NAEXKP01.USA.GP.Q",
+          "name": "GDP Growth: US"
+        },
+        {
+          "id": "OECD/KEI/NAEXKP01.DEU.GP.Q",
+          "name": "GDP Growth: Germany"
+        },
+        {
+          "id": "OECD/KEI/NAEXKP01.JPN.GP.Q",
+          "name": "GDP Growth: Japan"
+        },
+        {
+          "id": "OECD/KEI/NAEXKP01.GBR.GP.Q",
+          "name": "GDP Growth: UK"
+        },
+        {
+          "id": "OECD/KEI/NAEXKP01.FRA.GP.Q",
+          "name": "GDP Growth: France"
+        },
+        {
+          "id": "OECD/KEI/NAEXKP01.ITA.GP.Q",
+          "name": "GDP Growth: Italy"
+        },
+        {
+          "id": "OECD/KEI/NAEXKP01.CAN.GP.Q",
+          "name": "GDP Growth: Canada"
+        },
+        {
+          "id": "OECD/KEI/NAEXKP01.CHE.GP.Q",
+          "name": "GDP Growth: Switzerland"
+        },
+        {
+          "id": "OECD/KEI/BPTDCA01.USA.ST.Q",
+          "name": "Trade Balance: US"
+        },
+        {
+          "id": "OECD/KEI/BPTDCA01.DEU.ST.Q",
+          "name": "Trade Balance: Germany"
+        },
+        {
+          "id": "OECD/KEI/BPTDCA01.JPN.ST.Q",
+          "name": "Trade Balance: Japan"
+        },
+        {
+          "id": "OECD/KEI/BPTDCA01.CHN.ST.Q",
+          "name": "Trade Balance: China"
+        },
+        {
+          "id": "OECD/KEI/IR3TIB01.USA.ST.M",
+          "name": "3-Month Rate: US"
+        },
+        {
+          "id": "OECD/KEI/IR3TIB01.JPN.ST.M",
+          "name": "3-Month Rate: Japan"
+        },
+        {
+          "id": "OECD/KEI/IR3TIB01.GBR.ST.M",
+          "name": "3-Month Rate: UK"
+        },
+        {
+          "id": "OECD/KEI/IR3TIB01.CHE.ST.M",
+          "name": "3-Month Rate: Switzerland"
+        },
+        {
+          "id": "OECD/KEI/IR3TIB01.CAN.ST.M",
+          "name": "3-Month Rate: Canada"
+        },
+        {
+          "id": "OECD/KEI/MABMM201.USA.GP.M",
+          "name": "M2 Money Supply: US"
+        }
+      ]
+    },
+    "imf": {
+      "description": "IMF World Economic Outlook and IFS",
+      "series": [
+        {
+          "id": "IMF/WEO:latest/USA.NGDP_RPCH.pcent_change",
+          "name": "GDP Growth Forecast: US"
+        },
+        {
+          "id": "IMF/WEO:latest/DEU.NGDP_RPCH.pcent_change",
+          "name": "GDP Growth Forecast: Germany"
+        },
+        {
+          "id": "IMF/WEO:latest/JPN.NGDP_RPCH.pcent_change",
+          "name": "GDP Growth Forecast: Japan"
+        },
+        {
+          "id": "IMF/WEO:latest/GBR.NGDP_RPCH.pcent_change",
+          "name": "GDP Growth Forecast: UK"
+        },
+        {
+          "id": "IMF/WEO:latest/FRA.NGDP_RPCH.pcent_change",
+          "name": "GDP Growth Forecast: France"
+        },
+        {
+          "id": "IMF/WEO:latest/ITA.NGDP_RPCH.pcent_change",
+          "name": "GDP Growth Forecast: Italy"
+        },
+        {
+          "id": "IMF/WEO:latest/CHN.NGDP_RPCH.pcent_change",
+          "name": "GDP Growth Forecast: China"
+        },
+        {
+          "id": "IMF/WEO:latest/IND.NGDP_RPCH.pcent_change",
+          "name": "GDP Growth Forecast: India"
+        },
+        {
+          "id": "IMF/WEO:latest/BRA.NGDP_RPCH.pcent_change",
+          "name": "GDP Growth Forecast: Brazil"
+        },
+        {
+          "id": "IMF/WEO:latest/CAN.NGDP_RPCH.pcent_change",
+          "name": "GDP Growth Forecast: Canada"
+        },
+        {
+          "id": "IMF/WEO:latest/AUS.NGDP_RPCH.pcent_change",
+          "name": "GDP Growth Forecast: Australia"
+        },
+        {
+          "id": "IMF/WEO:latest/MEX.NGDP_RPCH.pcent_change",
+          "name": "GDP Growth Forecast: Mexico"
+        },
+        {
+          "id": "IMF/WEO:latest/KOR.NGDP_RPCH.pcent_change",
+          "name": "GDP Growth Forecast: South Korea"
+        },
+        {
+          "id": "IMF/WEO:latest/USA.PCPIPCH.pcent_change",
+          "name": "Inflation Forecast: US"
+        },
+        {
+          "id": "IMF/WEO:latest/DEU.PCPIPCH.pcent_change",
+          "name": "Inflation Forecast: Germany"
+        },
+        {
+          "id": "IMF/WEO:latest/JPN.PCPIPCH.pcent_change",
+          "name": "Inflation Forecast: Japan"
+        },
+        {
+          "id": "IMF/WEO:latest/GBR.PCPIPCH.pcent_change",
+          "name": "Inflation Forecast: UK"
+        },
+        {
+          "id": "IMF/WEO:latest/CHN.PCPIPCH.pcent_change",
+          "name": "Inflation Forecast: China"
+        },
+        {
+          "id": "IMF/WEO:latest/IND.PCPIPCH.pcent_change",
+          "name": "Inflation Forecast: India"
+        },
+        {
+          "id": "IMF/WEO:latest/BRA.PCPIPCH.pcent_change",
+          "name": "Inflation Forecast: Brazil"
+        },
+        {
+          "id": "IMF/WEO:latest/USA.LUR.pcent",
+          "name": "Unemployment Forecast: US"
+        },
+        {
+          "id": "IMF/WEO:latest/DEU.LUR.pcent",
+          "name": "Unemployment Forecast: Germany"
+        },
+        {
+          "id": "IMF/WEO:latest/JPN.LUR.pcent",
+          "name": "Unemployment Forecast: Japan"
+        },
+        {
+          "id": "IMF/WEO:latest/GBR.LUR.pcent",
+          "name": "Unemployment Forecast: UK"
+        },
+        {
+          "id": "IMF/WEO:latest/ADVEC.NGDP_RPCH.pcent_change",
+          "name": "GDP Growth: Advanced Economies"
+        },
+        {
+          "id": "IMF/WEO:latest/OEMDC.NGDP_RPCH.pcent_change",
+          "name": "GDP Growth: Emerging Markets"
+        },
+        {
+          "id": "IMF/WEO:latest/WEO.NGDP_RPCH.pcent_change",
+          "name": "GDP Growth: World"
+        },
+        {
+          "id": "IMF/IFS/M.US.PCPI_IX",
+          "name": "CPI Index: US"
+        },
+        {
+          "id": "IMF/IFS/M.DE.PCPI_IX",
+          "name": "CPI Index: Germany"
+        },
+        {
+          "id": "IMF/IFS/M.JP.PCPI_IX",
+          "name": "CPI Index: Japan"
+        },
+        {
+          "id": "IMF/IFS/M.GB.PCPI_IX",
+          "name": "CPI Index: UK"
+        }
+      ]
+    },
+    "eurostat": {
+      "description": "Eurostat European statistics",
+      "series": [
+        {
+          "id": "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.EA20",
+          "name": "HICP Inflation: Euro Area"
+        },
+        {
+          "id": "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.DE",
+          "name": "HICP Inflation: Germany"
+        },
+        {
+          "id": "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.FR",
+          "name": "HICP Inflation: France"
+        },
+        {
+          "id": "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.IT",
+          "name": "HICP Inflation: Italy"
+        },
+        {
+          "id": "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.ES",
+          "name": "HICP Inflation: Spain"
+        },
+        {
+          "id": "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.NL",
+          "name": "HICP Inflation: Netherlands"
+        },
+        {
+          "id": "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.BE",
+          "name": "HICP Inflation: Belgium"
+        },
+        {
+          "id": "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.AT",
+          "name": "HICP Inflation: Austria"
+        },
+        {
+          "id": "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.PT",
+          "name": "HICP Inflation: Portugal"
+        },
+        {
+          "id": "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.IE",
+          "name": "HICP Inflation: Ireland"
+        },
+        {
+          "id": "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.FI",
+          "name": "HICP Inflation: Finland"
+        },
+        {
+          "id": "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.GR",
+          "name": "HICP Inflation: Greece"
+        },
+        {
+          "id": "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.EA20",
+          "name": "Unemployment: Euro Area"
+        },
+        {
+          "id": "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.DE",
+          "name": "Unemployment: Germany"
+        },
+        {
+          "id": "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.FR",
+          "name": "Unemployment: France"
+        },
+        {
+          "id": "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.IT",
+          "name": "Unemployment: Italy"
+        },
+        {
+          "id": "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.ES",
+          "name": "Unemployment: Spain"
+        },
+        {
+          "id": "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.NL",
+          "name": "Unemployment: Netherlands"
+        },
+        {
+          "id": "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.BE",
+          "name": "Unemployment: Belgium"
+        },
+        {
+          "id": "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.AT",
+          "name": "Unemployment: Austria"
+        },
+        {
+          "id": "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.PT",
+          "name": "Unemployment: Portugal"
+        },
+        {
+          "id": "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.GR",
+          "name": "Unemployment: Greece"
+        },
+        {
+          "id": "Eurostat/namq_10_gdp/Q.SCA.CLV10_MEUR.B1GQ.EA20",
+          "name": "Real GDP: Euro Area"
+        },
+        {
+          "id": "Eurostat/namq_10_gdp/Q.SCA.CLV10_MEUR.B1GQ.DE",
+          "name": "Real GDP: Germany"
+        },
+        {
+          "id": "Eurostat/namq_10_gdp/Q.SCA.CLV10_MEUR.B1GQ.FR",
+          "name": "Real GDP: France"
+        },
+        {
+          "id": "Eurostat/namq_10_gdp/Q.SCA.CLV10_MEUR.B1GQ.IT",
+          "name": "Real GDP: Italy"
+        },
+        {
+          "id": "Eurostat/namq_10_gdp/Q.SCA.CLV10_MEUR.B1GQ.ES",
+          "name": "Real GDP: Spain"
+        },
+        {
+          "id": "Eurostat/ei_bsci_m_r2/M.SA.BS-ICI-BAL.I.EA",
+          "name": "Industrial Confidence: Euro Area"
+        },
+        {
+          "id": "Eurostat/ei_bsco_m/M.SA.BS-CSMCI-BAL.I.EA",
+          "name": "Consumer Confidence: Euro Area"
+        },
+        {
+          "id": "Eurostat/sts_inpr_m/M.SCA.I21.PROD.B-D.EA20",
+          "name": "Industrial Production: Euro Area"
+        },
+        {
+          "id": "Eurostat/sts_inpr_m/M.SCA.I21.PROD.B-D.DE",
+          "name": "Industrial Production: Germany"
+        },
+        {
+          "id": "Eurostat/sts_inpr_m/M.SCA.I21.PROD.B-D.FR",
+          "name": "Industrial Production: France"
+        },
+        {
+          "id": "Eurostat/sts_inpr_m/M.SCA.I21.PROD.B-D.IT",
+          "name": "Industrial Production: Italy"
+        }
+      ]
+    },
+    "worldbank": {
+      "description": "World Bank World Development Indicators",
+      "series": [
+        {
+          "id": "WB/WDI/A-NY.GDP.MKTP.KD.ZG-USA",
+          "name": "GDP Growth: US"
+        },
+        {
+          "id": "WB/WDI/A-NY.GDP.MKTP.KD.ZG-DEU",
+          "name": "GDP Growth: Germany"
+        },
+        {
+          "id": "WB/WDI/A-NY.GDP.MKTP.KD.ZG-JPN",
+          "name": "GDP Growth: Japan"
+        },
+        {
+          "id": "WB/WDI/A-NY.GDP.MKTP.KD.ZG-GBR",
+          "name": "GDP Growth: UK"
+        },
+        {
+          "id": "WB/WDI/A-NY.GDP.MKTP.KD.ZG-FRA",
+          "name": "GDP Growth: France"
+        },
+        {
+          "id": "WB/WDI/A-NY.GDP.MKTP.KD.ZG-ITA",
+          "name": "GDP Growth: Italy"
+        },
+        {
+          "id": "WB/WDI/A-NY.GDP.MKTP.KD.ZG-CHN",
+          "name": "GDP Growth: China"
+        },
+        {
+          "id": "WB/WDI/A-NY.GDP.MKTP.KD.ZG-IND",
+          "name": "GDP Growth: India"
+        },
+        {
+          "id": "WB/WDI/A-NY.GDP.MKTP.KD.ZG-BRA",
+          "name": "GDP Growth: Brazil"
+        },
+        {
+          "id": "WB/WDI/A-NY.GDP.MKTP.KD.ZG-CAN",
+          "name": "GDP Growth: Canada"
+        },
+        {
+          "id": "WB/WDI/A-NY.GDP.MKTP.KD.ZG-AUS",
+          "name": "GDP Growth: Australia"
+        },
+        {
+          "id": "WB/WDI/A-NY.GDP.MKTP.KD.ZG-MEX",
+          "name": "GDP Growth: Mexico"
+        },
+        {
+          "id": "WB/WDI/A-NY.GDP.MKTP.KD.ZG-KOR",
+          "name": "GDP Growth: South Korea"
+        },
+        {
+          "id": "WB/WDI/A-NY.GDP.MKTP.KD.ZG-IDN",
+          "name": "GDP Growth: Indonesia"
+        },
+        {
+          "id": "WB/WDI/A-NY.GDP.MKTP.KD.ZG-TUR",
+          "name": "GDP Growth: Turkey"
+        },
+        {
+          "id": "WB/WDI/A-NY.GDP.MKTP.KD.ZG-ZAF",
+          "name": "GDP Growth: South Africa"
+        },
+        {
+          "id": "WB/WDI/A-NY.GDP.MKTP.KD.ZG-WLD",
+          "name": "GDP Growth: World"
+        },
+        {
+          "id": "WB/WDI/A-FP.CPI.TOTL.ZG-USA",
+          "name": "CPI Inflation: US"
+        },
+        {
+          "id": "WB/WDI/A-FP.CPI.TOTL.ZG-DEU",
+          "name": "CPI Inflation: Germany"
+        },
+        {
+          "id": "WB/WDI/A-FP.CPI.TOTL.ZG-JPN",
+          "name": "CPI Inflation: Japan"
+        },
+        {
+          "id": "WB/WDI/A-FP.CPI.TOTL.ZG-GBR",
+          "name": "CPI Inflation: UK"
+        },
+        {
+          "id": "WB/WDI/A-FP.CPI.TOTL.ZG-CHN",
+          "name": "CPI Inflation: China"
+        },
+        {
+          "id": "WB/WDI/A-FP.CPI.TOTL.ZG-IND",
+          "name": "CPI Inflation: India"
+        },
+        {
+          "id": "WB/WDI/A-FP.CPI.TOTL.ZG-BRA",
+          "name": "CPI Inflation: Brazil"
+        },
+        {
+          "id": "WB/WDI/A-FP.CPI.TOTL.ZG-WLD",
+          "name": "CPI Inflation: World"
+        },
+        {
+          "id": "WB/WDI/A-SL.UEM.TOTL.ZS-USA",
+          "name": "Unemployment: US"
+        },
+        {
+          "id": "WB/WDI/A-SL.UEM.TOTL.ZS-DEU",
+          "name": "Unemployment: Germany"
+        },
+        {
+          "id": "WB/WDI/A-SL.UEM.TOTL.ZS-JPN",
+          "name": "Unemployment: Japan"
+        },
+        {
+          "id": "WB/WDI/A-SL.UEM.TOTL.ZS-GBR",
+          "name": "Unemployment: UK"
+        },
+        {
+          "id": "WB/WDI/A-SL.UEM.TOTL.ZS-CHN",
+          "name": "Unemployment: China"
+        },
+        {
+          "id": "WB/WDI/A-SL.UEM.TOTL.ZS-WLD",
+          "name": "Unemployment: World"
+        },
+        {
+          "id": "WB/WDI/A-NE.TRD.GNFS.ZS-WLD",
+          "name": "Trade % of GDP: World"
+        },
+        {
+          "id": "WB/WDI/A-BN.CAB.XOKA.GD.ZS-USA",
+          "name": "Current Account: US"
+        },
+        {
+          "id": "WB/WDI/A-BN.CAB.XOKA.GD.ZS-CHN",
+          "name": "Current Account: China"
+        },
+        {
+          "id": "WB/WDI/A-BN.CAB.XOKA.GD.ZS-DEU",
+          "name": "Current Account: Germany"
+        },
+        {
+          "id": "WB/WDI/A-BN.CAB.XOKA.GD.ZS-JPN",
+          "name": "Current Account: Japan"
+        }
+      ]
+    }
+  },
+  "simplified_lists": {
+    "_comment": "Flat lists for direct pipeline use",
+    "fred_all": [
+      "DFF",
+      "FEDFUNDS",
+      "DFEDTARU",
+      "DFEDTARL",
+      "DPRIME",
+      "DISCOUNT",
+      "DGS1MO",
+      "DGS3MO",
+      "DGS6MO",
+      "DGS1",
+      "DGS2",
+      "DGS3",
+      "DGS5",
+      "DGS7",
+      "DGS10",
+      "DGS20",
+      "DGS30",
+      "T10Y2Y",
+      "T10Y3M",
+      "T10YFF",
+      "T5YFF",
+      "DFII10",
+      "DFII5",
+      "T10YIE",
+      "T5YIE",
+      "T5YIFR",
+      "SOFR",
+      "SOFR30DAYAVG",
+      "SOFR90DAYAVG",
+      "SOFR180DAYAVG",
+      "EFFR",
+      "OBFR",
+      "USD3MTD156N",
+      "RRPONTSYD",
+      "RPONTSYD",
+      "WORAL",
+      "CPIAUCSL",
+      "CPIAUCNS",
+      "CPILFESL",
+      "CPIUFDSL",
+      "CPIENGSL",
+      "CUSR0000SAH1",
+      "CUSR0000SETB01",
+      "CUSR0000SAM2",
+      "PCEPI",
+      "PCEPILFE",
+      "PPIACO",
+      "PPIFIS",
+      "PPIFGS",
+      "WPSFD4131",
+      "PCETRIM12M159SFRBDAL",
+      "MEDCPIM158SFRBCLE",
+      "CORESTICKM159SFRBATL",
+      "EXPINF1YR",
+      "EXPINF10YR",
+      "UNRATE",
+      "U6RATE",
+      "PAYEMS",
+      "USPRIV",
+      "MANEMP",
+      "USCONS",
+      "USFIRE",
+      "USINFO",
+      "USPBS",
+      "USGOVT",
+      "ICSA",
+      "CCSA",
+      "IC4WSA",
+      "CIVPART",
+      "EMRATIO",
+      "AWHAETP",
+      "CES0500000003",
+      "ECIWAG",
+      "ECIALLCIV",
+      "JTSJOL",
+      "JTSQUR",
+      "JTSHIR",
+      "JTSTSR",
+      "NROU",
+      "LNS12032194",
+      "GDP",
+      "GDPC1",
+      "GDPPOT",
+      "A191RL1Q225SBEA",
+      "GDPDEF",
+      "GDPCA",
+      "PCECC96",
+      "GPDIC1",
+      "GCEC1",
+      "NETEXC",
+      "A014RE1Q156NBEA",
+      "W207RC1Q156SBEA",
+      "GNP",
+      "A939RX0Q048SBEA",
+      "INDPRO",
+      "IPMANSICS",
+      "IPMINE",
+      "IPUTIL",
+      "IPDCONGD",
+      "IPNCONGD",
+      "IPBUSEQ",
+      "TCU",
+      "MCUMFN",
+      "CAPUTLG3311S",
+      "IPMAN",
+      "HOUST",
+      "HOUST1F",
+      "HOUST5F",
+      "PERMIT",
+      "PERMIT1",
+      "COMPUTSA",
+      "HSN1F",
+      "EXHOSLUSM495S",
+      "MSPUS",
+      "CSUSHPINSA",
+      "SPCS20RSA",
+      "MORTGAGE30US",
+      "MORTGAGE15US",
+      "MORTGAGE5US",
+      "DRSFRMACBS",
+      "RHORUSQ156N",
+      "RRVRUSQ156N",
+      "MSACSR",
+      "UMCSENT",
+      "UMCSENT1",
+      "UMCSENT5",
+      "CONCCONF",
+      "CSCICP03USM665S",
+      "PCE",
+      "PCEDG",
+      "PCEND",
+      "PCES",
+      "RSXFS",
+      "RETAILSMNSA",
+      "RRSFS",
+      "DSPIC96",
+      "PSAVERT",
+      "TDSP",
+      "FODSP",
+      "REVOLSL",
+      "NONREVSL",
+      "TOTALSL",
+      "NEWORDER",
+      "DGORDER",
+      "AMTMNO",
+      "ACDGNO",
+      "ANDENO",
+      "BUSLOANS",
+      "TOTCI",
+      "BOGZ1FL104122005Q",
+      "NCBDBIQ027S",
+      "PNFI",
+      "PRFI",
+      "ISRATIO",
+      "BSCICP03USM665S",
+      "M1SL",
+      "M2SL",
+      "WM2NS",
+      "M1V",
+      "M2V",
+      "WALCL",
+      "WTREGEN",
+      "RRPONTSYAWARD",
+      "WLRRAL",
+      "TOTRESNS",
+      "EXCSRESNS",
+      "REQRESNS",
+      "BASE",
+      "MULT",
+      "BOGMBASE",
+      "H8B1058NCBCMG",
+      "DRCCLACBS",
+      "DRALACBS",
+      "DRBLACBS",
+      "BOPGSTB",
+      "BOPGTB",
+      "BOPSTB",
+      "EXPGS",
+      "IMPGS",
+      "EXPGSC1",
+      "IMPGSC1",
+      "IEABC",
+      "DTWEXBGS",
+      "DTWEXAFEGS",
+      "DTWEXEMEGS",
+      "TWEXBGSMTH",
+      "NFCI",
+      "ANFCI",
+      "STLFSI4",
+      "KCFSI",
+      "GSFCI",
+      "TEDRATE",
+      "BAMLH0A0HYM2",
+      "BAMLC0A0CM",
+      "BAMLC0A4CBBB",
+      "BAMLH0A0HYM2EY",
+      "AAA",
+      "BAA",
+      "DAAA",
+      "DBAA",
+      "VIXCLS",
+      "USSLIND",
+      "CFNAI",
+      "CFNAIMA3",
+      "FYFSD",
+      "MTSDS133FMS",
+      "GFDEBTN",
+      "GFDEGDQ188S",
+      "FYGDP",
+      "FYOIGDA188S",
+      "A091RC1Q027SBEA",
+      "W068RCQ027SBEA",
+      "SLEXPND",
+      "FDHBFRBN",
+      "FDHBFIN",
+      "FDHBPIN",
+      "NAPMNOI",
+      "NAPMPI",
+      "NAPMPRI",
+      "NAPMSDI",
+      "NAPM",
+      "NMFBAI",
+      "NMFCI",
+      "GACDFSA066MSFRBPHI",
+      "GACDISA066MSFRBNY",
+      "GACDISA066MSFRBRIC",
+      "GACDISA066MSFRBDAL",
+      "GACDISA066MSFRBKC",
+      "AIABORQ",
+      "DCOILWTICO",
+      "DCOILBRENTEU",
+      "DHHNGSP",
+      "GASREGW",
+      "DEXUSEU",
+      "DEXJPUS",
+      "DEXUSUK",
+      "DEXSZUS",
+      "DEXCAUS",
+      "DEXUSAL",
+      "DEXCHUS",
+      "DEXMXUS",
+      "DEXBZUS",
+      "DEXKOUS",
+      "DEXINUS",
+      "GOLDAMGBD228NLBM",
+      "PPICRM",
+      "PFOODINDEXM",
+      "PNRGINDEXM",
+      "PMETAINDEXM",
+      "PALLFNFINDEXM",
+      "OPHNFB",
+      "ULCNFB",
+      "COMPNFB",
+      "PRS85006092",
+      "MFPNFBS",
+      "DRTSCILM",
+      "DRTSCIS",
+      "DRTSCLCC",
+      "SUBLPDRCSC",
+      "STDSAUTO",
+      "POPTHM",
+      "CLF16OV",
+      "CE16OV",
+      "UNEMPLOY",
+      "LNS11300060",
+      "LNS11300001",
+      "LNS11300002",
+      "ECBMRRFR",
+      "ECBDFR",
+      "IRSTCB01GBM156N",
+      "IRSTCI01JPM156N",
+      "IR3TIB01CHM156N",
+      "IRSTCB01CAM156N",
+      "IRSTCB01AUM156N",
+      "IRSTCI01BRM156N",
+      "IRSTCI01MXM156N",
+      "IRSTCI01INM156N",
+      "INTDSRCNM193N",
+      "IR3TIB01EZM156N",
+      "IR3TIB01JPM156N",
+      "IR3TIB01CAM156N",
+      "IR3TIB01GBM156N",
+      "CP0000EZ19M086NEST",
+      "CPHPTT01EZM659N",
+      "DEUCPIALLMINMEI",
+      "FRACPIALLMINMEI",
+      "ITACPIALLMINMEI",
+      "ESPCPIALLMINMEI",
+      "NLDCPIALLMINMEI",
+      "GBRCPIALLMINMEI",
+      "CPHPTT01GBM659N",
+      "JPNCPIALLMINMEI",
+      "CHNCPIALLMINMEI",
+      "CPALTT01CAM657N",
+      "AUSCPIALLQINMEI",
+      "CHECPIALLMINMEI",
+      "BRACPIALLMINMEI",
+      "INDCPIALLMINMEI",
+      "MEXCPIALLMINMEI",
+      "KORCPIALLMINMEI",
+      "TURCPIALLMINMEI",
+      "ZAFCPIALLMINMEI",
+      "POLCPIALLMINMEI",
+      "IDNCPIALLMINMEI",
+      "SWECPIALLMINMEI",
+      "NORCPIALLQINMEI",
+      "LRHUTTTTEZM156S",
+      "LRHUTTTTDEM156S",
+      "LRHUTTTTFRM156S",
+      "LRHUTTTTITM156S",
+      "LRHUTTTTESM156S",
+      "LRHUTTTTGBM156S",
+      "LRHUTTTTJPM156S",
+      "LRUNTTTTCAM156S",
+      "LRUNTTTTAUM156S",
+      "LRHUTTTTCHM156S",
+      "LRHUTTTTCNM156S",
+      "LRUNTTTBRM156S",
+      "LRUNTTTTMXM156S",
+      "LRUNTTTTKRM156S",
+      "CLVMNACSCAB1GQEA19",
+      "CLVMNACSCAB1GQDE",
+      "CLVMNACSCAB1GQUK",
+      "JPNRGDPEXP",
+      "NGDPRSAXDCCAQ",
+      "CLVMNACSCAB1GQCH",
+      "MKTGDPCNA646NWDB",
+      "MKTGDPBRA646NWDB",
+      "MKTGDPINA646NWDB",
+      "MKTGDPMXA646NWDB",
+      "NYGDPMKTPCDWLD",
+      "CSCICP02EZM460S",
+      "BSCICP02EZM460S",
+      "CSCICP02DEM460S",
+      "BSCICP02DEM460S",
+      "CSCICP02GBM460S",
+      "BSCICP02GBM460S",
+      "CSCICP02JPM460S",
+      "BSCICP02JPM460S",
+      "CSCICP02CNM460S",
+      "CSCICP02CAM460S",
+      "CSCICP02AUM460S",
+      "CSCICP02CHM460S",
+      "PRMNTO01EZM661S",
+      "PRMNTO01DEM661S",
+      "PRMNTO01GBM661S",
+      "PRMNTO01JPM661S",
+      "PRMNTO01CNM661S",
+      "DEULORSGPNOSTSAM",
+      "GBRLORSGPNOSTSAM",
+      "JPNLORSGPNOSTSAM",
+      "FRALORSGPNOSTSAM",
+      "ITALORSGPNOSTSAM",
+      "CHNLORSGPNOSTSAM",
+      "OABORSGPNOSTSAM",
+      "G7LORSGPNOSTSAM",
+      "XTEXVA01CNM667S",
+      "XTIMVA01CNM667S",
+      "BPTDCA01DEM640S",
+      "BPTDCA01JPM640S",
+      "BPTDCA01CNM640S",
+      "BPCACA01CNQ637S",
+      "CCRETT01JPM661N",
+      "CRDQUSAPABIS",
+      "CRDQXMAPABIS",
+      "CRDQCNAPABIS",
+      "CRDQGBAPABIS",
+      "CRDQJPAPABIS",
+      "QGBR628BIS",
+      "QDEU628BIS",
+      "QJPN628BIS",
+      "QCHN628BIS",
+      "QCAN628BIS",
+     "QAUS628BIS",
+      "RNGBIS",
+      "RNJPIS",
+      "RNCHIS",
+      "RNCNIS",
+      "CSINFT02USM460S",
+      "CSCICP02CHQ460S"
+    ],
+    "dbnomics_all": [
+      "ECB/FM/M.U2.EUR.4F.KR.MRR_FR.LEV",
+      "ECB/FM/M.U2.EUR.4F.KR.DFR.LEV",
+      "ECB/FM/M.U2.EUR.4F.KR.MLFR.LEV",
+      "ECB/FM/M.U2.EUR.RT.MM.EURIBOR3MD_.HSTA",
+      "ECB/EXR/D.USD.EUR.SP00.A",
+      "ECB/EXR/D.GBP.EUR.SP00.A",
+      "ECB/EXR/D.JPY.EUR.SP00.A",
+      "ECB/EXR/D.CHF.EUR.SP00.A",
+      "ECB/EXR/D.CNY.EUR.SP00.A",
+      "ECB/EXR/D.CAD.EUR.SP00.A",
+      "ECB/EXR/D.AUD.EUR.SP00.A",
+      "ECB/EXR/D.KRW.EUR.SP00.A",
+      "ECB/EXR/D.INR.EUR.SP00.A",
+      "ECB/EXR/D.BRL.EUR.SP00.A",
+      "ECB/EXR/D.MXN.EUR.SP00.A",
+      "ECB/BSI/M.U2.N.A.A20.A.1.U2.1000.Z01.E",
+      "BIS/WS_CBPOL/D.US",
+      "BIS/WS_CBPOL/D.XM",
+      "BIS/WS_CBPOL/D.GB",
+      "BIS/WS_CBPOL/D.JP",
+      "BIS/WS_CBPOL/D.CH",
+      "BIS/WS_CBPOL/D.CA",
+      "BIS/WS_CBPOL/D.AU",
+      "BIS/WS_CBPOL/D.CN",
+      "BIS/WS_CBPOL/D.IN",
+      "BIS/WS_CBPOL/D.BR",
+      "BIS/WS_CBPOL/D.MX",
+      "BIS/WS_CBPOL/D.KR",
+      "BIS/WS_CBPOL/D.ZA",
+      "BIS/WS_CBPOL/D.TR",
+      "BIS/WS_CBPOL/D.ID",
+      "BIS/WS_CBPOL/D.SE",
+      "BIS/WS_CBPOL/D.NO",
+      "BIS/WS_CBPOL/D.NZ",
+      "BIS/WS_EER/M.N.B.US",
+      "BIS/WS_EER/M.N.B.XM",
+      "BIS/WS_EER/M.N.B.GB",
+      "BIS/WS_EER/M.N.B.JP",
+      "BIS/WS_EER/M.N.B.CH",
+      "BIS/WS_EER/M.N.B.CN",
+      "BIS/WS_EER/M.N.B.CA",
+      "BIS/WS_EER/M.N.B.AU",
+      "BIS/WS_EER/M.N.B.KR",
+      "BIS/WS_EER/M.N.B.IN",
+      "BIS/WS_EER/M.N.B.BR",
+      "BIS/WS_EER/M.N.B.MX",
+      "BIS/WS_CREDIT/Q.US.P.A.M.XDC.A",
+      "BIS/WS_CREDIT/Q.XM.P.A.M.XDC.A",
+      "BIS/WS_CREDIT/Q.GB.P.A.M.XDC.A",
+      "BIS/WS_CREDIT/Q.JP.P.A.M.XDC.A",
+      "BIS/WS_CREDIT/Q.CN.P.A.M.XDC.A",
+      "BIS/WS_CREDIT/Q.CA.P.A.M.XDC.A",
+      "BIS/WS_CREDIT/Q.AU.P.A.M.XDC.A",
+      "BIS/WS_DSR/Q.US.H.C.A",
+      "BIS/WS_DSR/Q.GB.H.C.A",
+      "BIS/WS_DSR/Q.CA.H.C.A",
+      "BIS/WS_DSR/Q.AU.H.C.A",
+      "BIS/WS_SPP/Q.US.N.628",
+      "BIS/WS_SPP/Q.GB.N.628",
+      "BIS/WS_SPP/Q.DE.N.628",
+      "BIS/WS_SPP/Q.JP.N.628",
+      "BIS/WS_SPP/Q.CN.N.628",
+      "BIS/WS_SPP/Q.CA.N.628",
+      "BIS/WS_SPP/Q.AU.N.628",
+      "BIS/WS_SPP/Q.FR.N.628",
+      "BIS/WS_SPP/Q.IT.N.628",
+      "BIS/WS_SPP/Q.ES.N.628",
+      "BIS/WS_SPP/Q.NL.N.628",
+      "BIS/WS_SPP/Q.CH.N.628",
+      "BIS/WS_SPP/Q.SE.N.628",
+      "BIS/WS_SPP/Q.KR.N.628",
+      "OECD/MEI_CLI/LOLITOAA.USA.M",
+      "OECD/MEI_CLI/LOLITOAA.DEU.M",
+      "OECD/MEI_CLI/LOLITOAA.JPN.M",
+      "OECD/MEI_CLI/LOLITOAA.GBR.M",
+      "OECD/MEI_CLI/LOLITOAA.FRA.M",
+      "OECD/MEI_CLI/LOLITOAA.ITA.M",
+      "OECD/MEI_CLI/LOLITOAA.CHN.M",
+      "OECD/MEI_CLI/LOLITOAA.CAN.M",
+      "OECD/MEI_CLI/LOLITOAA.AUS.M",
+      "OECD/MEI_CLI/LOLITOAA.BRA.M",
+      "OECD/MEI_CLI/LOLITOAA.IND.M",
+      "OECD/MEI_CLI/LOLITOAA.MEX.M",
+      "OECD/MEI_CLI/LOLITOAA.KOR.M",
+      "OECD/MEI_CLI/LOLITOAA.OECD.M",
+      "OECD/MEI_CLI/LOLITOAA.G7M.M",
+      "OECD/KEI/LRUNTTTT.USA.ST.M",
+      "OECD/KEI/LRUNTTTT.DEU.ST.M",
+      "OECD/KEI/LRUNTTTT.JPN.ST.M",
+      "OECD/KEI/LRUNTTTT.GBR.ST.M",
+      "OECD/KEI/LRUNTTTT.FRA.ST.M",
+      "OECD/KEI/LRUNTTTT.ITA.ST.M",
+      "OECD/KEI/LRUNTTTT.CAN.ST.M",
+      "OECD/KEI/LRUNTTTT.AUS.ST.M",
+      "OECD/KEI/LRUNTTTT.CHE.ST.M",
+      "OECD/KEI/LRUNTTTT.CHN.ST.M",
+      "OECD/KEI/LRUNTTTT.BRA.ST.M",
+      "OECD/KEI/LRUNTTTT.MEX.ST.M",
+      "OECD/KEI/LRUNTTTT.KOR.ST.M",
+      "OECD/KEI/LRUNTTTT.OECD.ST.M",
+      "OECD/KEI/CPALTT01.USA.GP.M",
+      "OECD/KEI/CPALTT01.DEU.GP.M",
+      "OECD/KEI/CPALTT01.JPN.GP.M",
+      "OECD/KEI/CPALTT01.GBR.GP.M",
+      "OECD/KEI/CPALTT01.FRA.GP.M",
+      "OECD/KEI/CPALTT01.ITA.GP.M",
+      "OECD/KEI/CPALTT01.CAN.GP.M",
+      "OECD/KEI/CPALTT01.AUS.GP.Q",
+      "OECD/KEI/CPALTT01.CHE.GP.M",
+      "OECD/KEI/CPALTT01.CHN.GP.M",
+      "OECD/KEI/CPALTT01.BRA.GP.M",
+      "OECD/KEI/CPALTT01.MEX.GP.M",
+      "OECD/KEI/CPALTT01.IND.GP.M",
+      "OECD/KEI/CPALTT01.KOR.GP.M",
+      "OECD/KEI/CPALTT01.ZAF.GP.M",
+      "OECD/KEI/CPALTT01.TUR.GP.M",
+      "OECD/KEI/CPALTT01.IDN.GP.M",
+      "OECD/KEI/CPALTT01.POL.GP.M",
+      "OECD/KEI/CPALTT01.EA19.GP.M",
+      "OECD/KEI/PRINTO01.USA.GP.M",
+      "OECD/KEI/PRINTO01.DEU.GP.M",
+      "OECD/KEI/PRINTO01.JPN.GP.M",
+      "OECD/KEI/PRINTO01.GBR.GP.M",
+      "OECD/KEI/PRINTO01.FRA.GP.M",
+      "OECD/KEI/PRINTO01.ITA.GP.M",
+      "OECD/KEI/PRINTO01.CHN.GP.M",
+      "OECD/KEI/CSCICP02.USA.GP.M",
+      "OECD/KEI/CSCICP02.DEU.GP.M",
+      "OECD/KEI/CSCICP02.JPN.GP.M",
+      "OECD/KEI/CSCICP02.GBR.GP.M",
+      "OECD/KEI/CSCICP02.FRA.GP.M",
+      "OECD/KEI/CSCICP02.CAN.GP.M",
+      "OECD/KEI/CSCICP02.AUS.GP.M",
+      "OECD/KEI/CSCICP02.CHE.GP.M",
+      "OECD/KEI/CSCICP02.CHN.GP.M",
+      "OECD/KEI/BSCICP02.USA.GP.M",
+      "OECD/KEI/BSCICP02.DEU.GP.M",
+      "OECD/KEI/BSCICP02.JPN.GP.M",
+      "OECD/KEI/BSCICP02.GBR.GP.M",
+      "OECD/KEI/BSCICP02.FRA.GP.M",
+      "OECD/KEI/NAEXKP01.USA.GP.Q",
+      "OECD/KEI/NAEXKP01.DEU.GP.Q",
+      "OECD/KEI/NAEXKP01.JPN.GP.Q",
+      "OECD/KEI/NAEXKP01.GBR.GP.Q",
+      "OECD/KEI/NAEXKP01.FRA.GP.Q",
+      "OECD/KEI/NAEXKP01.ITA.GP.Q",
+      "OECD/KEI/NAEXKP01.CAN.GP.Q",
+      "OECD/KEI/NAEXKP01.CHE.GP.Q",
+      "OECD/KEI/BPTDCA01.USA.ST.Q",
+      "OECD/KEI/BPTDCA01.DEU.ST.Q",
+      "OECD/KEI/BPTDCA01.JPN.ST.Q",
+      "OECD/KEI/BPTDCA01.CHN.ST.Q",
+      "OECD/KEI/IR3TIB01.USA.ST.M",
+      "OECD/KEI/IR3TIB01.JPN.ST.M",
+      "OECD/KEI/IR3TIB01.GBR.ST.M",
+      "OECD/KEI/IR3TIB01.CHE.ST.M",
+      "OECD/KEI/IR3TIB01.CAN.ST.M",
+      "OECD/KEI/MABMM201.USA.GP.M",
+      "IMF/WEO:latest/USA.NGDP_RPCH.pcent_change",
+      "IMF/WEO:latest/DEU.NGDP_RPCH.pcent_change",
+      "IMF/WEO:latest/JPN.NGDP_RPCH.pcent_change",
+      "IMF/WEO:latest/GBR.NGDP_RPCH.pcent_change",
+      "IMF/WEO:latest/FRA.NGDP_RPCH.pcent_change",
+      "IMF/WEO:latest/ITA.NGDP_RPCH.pcent_change",
+      "IMF/WEO:latest/CHN.NGDP_RPCH.pcent_change",
+      "IMF/WEO:latest/IND.NGDP_RPCH.pcent_change",
+      "IMF/WEO:latest/BRA.NGDP_RPCH.pcent_change",
+      "IMF/WEO:latest/CAN.NGDP_RPCH.pcent_change",
+      "IMF/WEO:latest/AUS.NGDP_RPCH.pcent_change",
+      "IMF/WEO:latest/MEX.NGDP_RPCH.pcent_change",
+      "IMF/WEO:latest/KOR.NGDP_RPCH.pcent_change",
+      "IMF/WEO:latest/USA.PCPIPCH.pcent_change",
+      "IMF/WEO:latest/DEU.PCPIPCH.pcent_change",
+      "IMF/WEO:latest/JPN.PCPIPCH.pcent_change",
+      "IMF/WEO:latest/GBR.PCPIPCH.pcent_change",
+      "IMF/WEO:latest/CHN.PCPIPCH.pcent_change",
+      "IMF/WEO:latest/IND.PCPIPCH.pcent_change",
+      "IMF/WEO:latest/BRA.PCPIPCH.pcent_change",
+      "IMF/WEO:latest/USA.LUR.pcent",
+      "IMF/WEO:latest/DEU.LUR.pcent",
+      "IMF/WEO:latest/JPN.LUR.pcent",
+      "IMF/WEO:latest/GBR.LUR.pcent",
+      "IMF/WEO:latest/ADVEC.NGDP_RPCH.pcent_change",
+      "IMF/WEO:latest/OEMDC.NGDP_RPCH.pcent_change",
+      "IMF/WEO:latest/WEO.NGDP_RPCH.pcent_change",
+      "IMF/IFS/M.US.PCPI_IX",
+      "IMF/IFS/M.DE.PCPI_IX",
+      "IMF/IFS/M.JP.PCPI_IX",
+      "IMF/IFS/M.GB.PCPI_IX",
+      "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.EA20",
+      "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.DE",
+      "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.FR",
+      "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.IT",
+      "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.ES",
+      "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.NL",
+      "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.BE",
+      "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.AT",
+      "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.PT",
+      "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.IE",
+      "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.FI",
+      "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.GR",
+      "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.EA20",
+      "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.DE",
+      "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.FR",
+      "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.IT",
+      "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.ES",
+      "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.NL",
+      "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.BE",
+      "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.AT",
+      "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.PT",
+      "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.GR",
+      "Eurostat/namq_10_gdp/Q.SCA.CLV10_MEUR.B1GQ.EA20",
+      "Eurostat/namq_10_gdp/Q.SCA.CLV10_MEUR.B1GQ.DE",
+      "Eurostat/namq_10_gdp/Q.SCA.CLV10_MEUR.B1GQ.FR",
+      "Eurostat/namq_10_gdp/Q.SCA.CLV10_MEUR.B1GQ.IT",
+      "Eurostat/namq_10_gdp/Q.SCA.CLV10_MEUR.B1GQ.ES",
+      "Eurostat/ei_bsci_m_r2/M.SA.BS-ICI-BAL.I.EA",
+      "Eurostat/ei_bsco_m/M.SA.BS-CSMCI-BAL.I.EA",
+      "Eurostat/sts_inpr_m/M.SCA.I21.PROD.B-D.EA20",
+      "Eurostat/sts_inpr_m/M.SCA.I21.PROD.B-D.DE",
+      "Eurostat/sts_inpr_m/M.SCA.I21.PROD.B-D.FR",
+      "Eurostat/sts_inpr_m/M.SCA.I21.PROD.B-D.IT",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-USA",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-DEU",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-JPN",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-GBR",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-FRA",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-ITA",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-CHN",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-IND",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-BRA",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-CAN",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-AUS",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-MEX",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-KOR",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-IDN",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-TUR",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-ZAF",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-WLD",
+      "WB/WDI/A-FP.CPI.TOTL.ZG-USA",
+      "WB/WDI/A-FP.CPI.TOTL.ZG-DEU",
+      "WB/WDI/A-FP.CPI.TOTL.ZG-JPN",
+      "WB/WDI/A-FP.CPI.TOTL.ZG-GBR",
+      "WB/WDI/A-FP.CPI.TOTL.ZG-CHN",
+      "WB/WDI/A-FP.CPI.TOTL.ZG-IND",
+      "WB/WDI/A-FP.CPI.TOTL.ZG-BRA",
+      "WB/WDI/A-FP.CPI.TOTL.ZG-WLD",
+      "WB/WDI/A-SL.UEM.TOTL.ZS-USA",
+      "WB/WDI/A-SL.UEM.TOTL.ZS-DEU",
+      "WB/WDI/A-SL.UEM.TOTL.ZS-JPN",
+      "WB/WDI/A-SL.UEM.TOTL.ZS-GBR",
+      "WB/WDI/A-SL.UEM.TOTL.ZS-CHN",
+      "WB/WDI/A-SL.UEM.TOTL.ZS-WLD",
+      "WB/WDI/A-NE.TRD.GNFS.ZS-WLD",
+      "WB/WDI/A-BN.CAB.XOKA.GD.ZS-USA",
+      "WB/WDI/A-BN.CAB.XOKA.GD.ZS-CHN",
+      "WB/WDI/A-BN.CAB.XOKA.GD.ZS-DEU",
+      "WB/WDI/A-BN.CAB.XOKA.GD.ZS-JPN"
+    ],
+    "cross_validation_fred": [
+      "DFF",
+      "FEDFUNDS",
+      "ECBMRRFR",
+      "ECBDFR",
+      "IRSTCB01GBM156N",
+      "IRSTCI01JPM156N",
+      "IR3TIB01CHM156N",
+      "IRSTCB01CAM156N",
+      "IRSTCB01AUM156N",
+      "IRSTCI01BRM156N",
+      "IRSTCI01MXM156N",
+      "IRSTCI01INM156N",
+      "INTDSRCNM193N",
+      "IR3TIB01EZM156N",
+      "IR3TIB01JPM156N",
+      "IR3TIB01CAM156N",
+      "DEXUSEU",
+      "DEXJPUS",
+      "DEXUSUK",
+      "DEXSZUS",
+      "DTWEXBGS",
+      "TWEXBGSMTH",
+      "RNGBIS",
+      "RNJPIS",
+      "RNCHIS",
+      "RNCNIS",
+      "CPIAUCSL",
+      "CP0000EZ19M086NEST",
+      "DEUCPIALLMINMEI",
+      "FRACPIALLMINMEI",
+      "ITACPIALLMINMEI",
+      "ESPCPIALLMINMEI",
+      "GBRCPIALLMINMEI",
+      "JPNCPIALLMINMEI",
+      "CHNCPIALLMINMEI",
+      "CPALTT01CAM657N",
+      "AUSCPIALLQINMEI",
+      "CHECPIALLMINMEI",
+      "BRACPIALLMINMEI",
+      "MEXCPIALLMINMEI",
+      "INDCPIALLMINMEI",
+      "KORCPIALLMINMEI",
+      "UNRATE",
+      "LRHUTTTTEZM156S",
+      "LRHUTTTTDEM156S",
+      "LRHUTTTTFRM156S",
+      "LRHUTTTTGBM156S",
+      "LRHUTTTTJPM156S",
+      "LRUNTTTTCAM156S",
+      "LRUNTTTTAUM156S",
+      "LRHUTTTTCHM156S",
+      "LRHUTTTTCNM156S",
+      "A191RL1Q225SBEA",
+      "GDPCA",
+      "CLVMNACSCAB1GQEA19",
+      "CLVMNACSCAB1GQDE",
+      "CLVMNACSCAB1GQUK",
+      "JPNRGDPEXP",
+      "NGDPRSAXDCCAQ",
+      "CLVMNACSCAB1GQCH",
+      "USSLIND",
+      "DEULORSGPNOSTSAM",
+      "JPNLORSGPNOSTSAM",
+      "GBRLORSGPNOSTSAM",
+      "INDPRO",
+      "PRMNTO01EZM661S",
+      "PRMNTO01DEM661S",
+      "CSCICP03USM665S",
+      "CSCICP02EZM460S",
+      "CSCICP02DEM460S",
+      "CSCICP02GBM460S",
+      "CSCICP02JPM460S",
+      "CSCICP02CAM460S",
+      "BSCICP03USM665S",
+      "BSCICP02EZM460S",
+      "BSCICP02DEM460S",
+      "M2SL",
+      "CSUSHPINSA",
+      "TDSP",
+      "BOPGSTB",
+      "IEABC"
+    ],
+    "cross_validation_dbnomics": [
+      "BIS/WS_CBPOL/D.US",
+      "OECD/KEI/IR3TIB01.USA.ST.M",
+      "ECB/FM/M.U2.EUR.4F.KR.MRR_FR.LEV",
+      "ECB/FM/M.U2.EUR.4F.KR.DFR.LEV",
+      "BIS/WS_CBPOL/D.XM",
+      "BIS/WS_CBPOL/D.GB",
+      "BIS/WS_CBPOL/D.JP",
+      "BIS/WS_CBPOL/D.CH",
+      "BIS/WS_CBPOL/D.CA",
+      "BIS/WS_CBPOL/D.AU",
+      "BIS/WS_CBPOL/D.BR",
+      "BIS/WS_CBPOL/D.MX",
+      "BIS/WS_CBPOL/D.IN",
+      "BIS/WS_CBPOL/D.CN",
+      "ECB/FM/M.U2.EUR.RT.MM.EURIBOR3MD_.HSTA",
+      "OECD/KEI/IR3TIB01.JPN.ST.M",
+      "OECD/KEI/IR3TIB01.CAN.ST.M",
+      "ECB/EXR/D.USD.EUR.SP00.A",
+      "ECB/EXR/D.GBP.EUR.SP00.A",
+      "ECB/EXR/D.JPY.EUR.SP00.A",
+      "ECB/EXR/D.CHF.EUR.SP00.A",
+      "BIS/WS_EER/M.N.B.US",
+      "BIS/WS_EER/M.N.B.XM",
+      "BIS/WS_EER/M.N.B.GB",
+      "BIS/WS_EER/M.N.B.JP",
+      "BIS/WS_EER/M.N.B.CH",
+      "BIS/WS_EER/M.N.B.CN",
+      "OECD/KEI/CPALTT01.USA.GP.M",
+      "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.EA20",
+      "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.DE",
+      "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.FR",
+      "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.IT",
+      "Eurostat/prc_hicp_mmor/M.RCH_A.CP00.ES",
+      "OECD/KEI/CPALTT01.GBR.GP.M",
+      "OECD/KEI/CPALTT01.JPN.GP.M",
+      "OECD/KEI/CPALTT01.CHN.GP.M",
+      "OECD/KEI/CPALTT01.CAN.GP.M",
+      "OECD/KEI/CPALTT01.AUS.GP.Q",
+      "OECD/KEI/CPALTT01.CHE.GP.M",
+      "OECD/KEI/CPALTT01.BRA.GP.M",
+      "OECD/KEI/CPALTT01.MEX.GP.M",
+      "OECD/KEI/CPALTT01.IND.GP.M",
+      "OECD/KEI/CPALTT01.KOR.GP.M",
+      "OECD/KEI/LRUNTTTT.USA.ST.M",
+      "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.EA20",
+      "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.DE",
+      "Eurostat/une_rt_m/M.SA.TOTAL.PC_ACT.T.FR",
+      "OECD/KEI/LRUNTTTT.GBR.ST.M",
+      "OECD/KEI/LRUNTTTT.JPN.ST.M",
+      "OECD/KEI/LRUNTTTT.CAN.ST.M",
+      "OECD/KEI/LRUNTTTT.AUS.ST.M",
+      "OECD/KEI/LRUNTTTT.CHE.ST.M",
+      "OECD/KEI/LRUNTTTT.CHN.ST.M",
+      "OECD/KEI/NAEXKP01.USA.GP.Q",
+      "WB/WDI/A-NY.GDP.MKTP.KD.ZG-USA",
+      "Eurostat/namq_10_gdp/Q.SCA.CLV10_MEUR.B1GQ.EA20",
+      "Eurostat/namq_10_gdp/Q.SCA.CLV10_MEUR.B1GQ.DE",
+      "OECD/KEI/NAEXKP01.GBR.GP.Q",
+      "OECD/KEI/NAEXKP01.JPN.GP.Q",
+      "OECD/KEI/NAEXKP01.CAN.GP.Q",
+      "OECD/KEI/NAEXKP01.CHE.GP.Q",
+      "OECD/MEI_CLI/LOLITOAA.USA.M",
+      "OECD/MEI_CLI/LOLITOAA.DEU.M",
+      "OECD/MEI_CLI/LOLITOAA.JPN.M",
+      "OECD/MEI_CLI/LOLITOAA.GBR.M",
+      "OECD/KEI/PRINTO01.USA.GP.M",
+      "Eurostat/sts_inpr_m/M.SCA.I21.PROD.B-D.EA20",
+      "OECD/KEI/PRINTO01.DEU.GP.M",
+      "OECD/KEI/CSCICP02.USA.GP.M",
+      "Eurostat/ei_bsco_m/M.SA.BS-CSMCI-BAL.I.EA",
+      "OECD/KEI/CSCICP02.DEU.GP.M",
+      "OECD/KEI/CSCICP02.GBR.GP.M",
+      "OECD/KEI/CSCICP02.JPN.GP.M",
+      "OECD/KEI/CSCICP02.CAN.GP.M",
+      "OECD/KEI/BSCICP02.USA.GP.M",
+      "Eurostat/ei_bsci_m_r2/M.SA.BS-ICI-BAL.I.EA",
+      "OECD/KEI/BSCICP02.DEU.GP.M",
+      "OECD/KEI/MABMM201.USA.GP.M",
+      "ECB/BSI/M.U2.N.A.A20.A.1.U2.1000.Z01.E",
+      "BIS/WS_SPP/Q.US.N.628",
+      "BIS/WS_DSR/Q.US.H.C.A",
+      "OECD/KEI/BPTDCA01.USA.ST.Q",
+      "WB/WDI/A-BN.CAB.XOKA.GD.ZS-USA"
+    ]
+  }
+}
