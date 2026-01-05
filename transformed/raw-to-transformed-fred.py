@@ -30,15 +30,13 @@ print("Process Date: " + process_date)
 s3 = boto3.client('s3')
 
 
-# BUILD SOURCE AND TARGET PATHS (FIXED!)
+# build source and target paths
 
 if load_type == "historical":
-    # Historical: flat folder, no year/month/day
     source_prefix = "raw/asset_class=" + asset_class + "/source=fred/load_type=historical/"
     target_prefix = "transformed/asset_class=" + asset_class + "/source=fred/load_type=historical/"
     filename = asset_class + "_fred_historical.parquet"
 else:
-    # Daily: with year/month/day
     year_val, month_val, day_val = process_date.split('-')
     source_prefix = "raw/asset_class=" + asset_class + "/source=fred/load_type=daily/year=" + year_val + "/month=" + month_val + "/day=" + day_val + "/"
     target_prefix = "transformed/asset_class=" + asset_class + "/source=fred/load_type=daily/year=" + year_val + "/month=" + month_val + "/day=" + day_val + "/"
@@ -49,7 +47,7 @@ print("Reading from: " + source_prefix)
 print("Writing to: " + target_prefix + filename)
 
 
-# READ SOURCE FILES
+# read source files
 
 response = s3.list_objects_v2(Bucket=bucket, Prefix=source_prefix)
 
@@ -72,11 +70,11 @@ print("Total records read: " + str(len(combined_pdf)))
 print("Columns found: " + str(combined_pdf.columns.tolist()))
 
 
-# TRANSFORM DATA
+# transform data
 
 raw_df = spark.createDataFrame(combined_pdf)
 
-# Rename series_id to indicator if exists
+# series_id -> indicator
 if "series_id" in combined_pdf.columns:
     transformed_df = raw_df.withColumnRenamed("series_id", "indicator")
 else:
@@ -92,7 +90,7 @@ transformed_df = transformed_df.withColumn("source", lit("fred"))
 transformed_df = transformed_df.withColumn("load_type", lit(load_type))
 transformed_df = transformed_df.withColumn("transform_timestamp", current_timestamp())
 
-# Select columns based on what exists
+# select output columns
 available_cols = [c for c in transformed_df.columns]
 output_cols = ["date"]
 
@@ -115,7 +113,7 @@ print("Records to write: " + str(record_count))
 final_df.show(10)
 
 
-# WRITE OUTPUT
+# write output
 
 output_pdf = final_df.toPandas()
 target_key = target_prefix + filename

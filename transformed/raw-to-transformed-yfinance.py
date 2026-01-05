@@ -28,15 +28,13 @@ print("Process Date: " + process_date)
 s3 = boto3.client('s3')
 
 
-# BUILD SOURCE AND TARGET PATHS
+# build source and target paths
 
 if load_type == "historical":
-    # Historical: flat folder, no year/month/day
     source_prefix = "raw/asset_class=" + asset_class + "/source=yfinance/load_type=historical/"
     target_prefix = "transformed/asset_class=" + asset_class + "/source=yfinance/load_type=historical/"
     filename = asset_class + "_yfinance_historical.parquet"
 else:
-    # Daily: with year/month/day
     year_val, month_val, day_val = process_date.split('-')
     source_prefix = "raw/asset_class=" + asset_class + "/source=yfinance/load_type=daily/year=" + year_val + "/month=" + month_val + "/day=" + day_val + "/"
     target_prefix = "transformed/asset_class=" + asset_class + "/source=yfinance/load_type=daily/year=" + year_val + "/month=" + month_val + "/day=" + day_val + "/"
@@ -47,8 +45,7 @@ print("Reading from: " + source_prefix)
 print("Writing to: " + target_prefix + filename)
 
 
-# READ SOURCE FILES
-# Use Spark to read directly from S3 instead of pandas for better performance
+# read source files
 
 response = s3.list_objects_v2(Bucket=bucket, Prefix=source_prefix)
 
@@ -67,12 +64,10 @@ if len(parquet_files) == 0:
 
 print("Reading " + str(len(parquet_files)) + " parquet files with Spark...")
 
-# Configure Spark to handle timestamp format compatibility
-# PyArrow writes nanosecond timestamps, Spark expects microsecond timestamps
+# pyarrow writes nanosecond timestamps, Spark expects microseconds
 spark.conf.set("spark.sql.parquet.datetimeRebaseModeInRead", "CORRECTED")
 spark.conf.set("spark.sql.parquet.int96RebaseModeInRead", "CORRECTED")
 
-# Try to read with Spark directly, fall back to pandas if timestamp incompatibility
 try:
     raw_df = spark.read.parquet(*parquet_files)
     print("Successfully read with Spark")
@@ -90,12 +85,11 @@ except Exception as e:
         s3_obj = s3.get_object(Bucket=bucket, Key=key)
         pdf = pd.read_parquet(io.BytesIO(s3_obj['Body'].read()))
 
-        # Filter to 2018+ for historical loads (before combining to save memory)
         if load_type == "historical" and 'date' in pdf.columns:
             pdf['date'] = pd.to_datetime(pdf['date'])
             pdf = pdf[pdf['date'] >= '2018-01-01']
 
-        # Convert timestamp columns to datetime64[us] (microseconds) for Spark compatibility
+        # convert to microseconds for Spark compatibility
         for col_name in pdf.columns:
             if pd.api.types.is_datetime64_any_dtype(pdf[col_name]):
                 pdf[col_name] = pdf[col_name].astype('datetime64[us]')
@@ -110,9 +104,8 @@ except Exception as e:
 print("Total records read: " + str(raw_df.count()))
 
 
-# TRANSFORM DATA
+# transform data
 
-# Add date filtering for historical loads (2018-01-01 onwards)
 if load_type == "historical":
     print("Filtering data from 2018-01-01 onwards...")
     raw_df = raw_df.filter(col("date") >= "2018-01-01")
@@ -147,35 +140,29 @@ print("Records to write: " + str(record_count))
 final_df.show(5)
 
 
-# WRITE OUTPUT
-# Use Spark's native parquet writer instead of converting to pandas
-# This is MUCH more efficient for large datasets
+# write output
 
 target_s3_path = "s3://" + bucket + "/" + target_prefix + filename
 
 print("Writing to: " + target_s3_path)
 
-# Determine optimal partitioning strategy based on data size
-num_partitions = max(1, int(record_count / 100000))  # ~100k records per partition
-num_partitions = min(num_partitions, 10)  # Cap at 10 partitions
+# ~100k records per partition, cap at 10
+num_partitions = max(1, int(record_count / 100000))
+num_partitions = min(num_partitions, 10)
 
 print("Using " + str(num_partitions) + " partition(s) for writing")
 
-# Write to temporary location with optimal partitioning
 if num_partitions == 1:
     final_df.coalesce(1).write.mode("overwrite").parquet(target_s3_path + ".tmp")
 else:
-    # For large datasets, write to multiple partitions
     final_df.repartition(num_partitions).write.mode("overwrite").parquet(target_s3_path + ".tmp")
 
-# Consolidate output files
+# consolidate output files
 print("Consolidating output file...")
 
-# List files in the tmp directory
 tmp_prefix = target_prefix + filename + ".tmp/"
 tmp_response = s3.list_objects_v2(Bucket=bucket, Prefix=tmp_prefix)
 
-# Find all parquet files (not _SUCCESS or _metadata files)
 parquet_files_written = []
 for obj in tmp_response.get('Contents', []):
     key = obj['Key']
@@ -190,7 +177,6 @@ if len(parquet_files_written) == 0:
     sys.exit(1)
 
 if len(parquet_files_written) == 1:
-    # Single file - just copy it
     target_key = target_prefix + filename
     print("Copying single file to " + target_key)
     s3.copy_object(
@@ -199,7 +185,6 @@ if len(parquet_files_written) == 1:
         Key=target_key
     )
 else:
-    # Multiple files - merge them using pandas
     print("Merging " + str(len(parquet_files_written)) + " parquet files...")
 
     import pandas as pd
@@ -215,7 +200,6 @@ else:
     merged_pdf = pd.concat(merge_dfs, ignore_index=True)
     print("Merged " + str(len(merged_pdf)) + " total records")
 
-    # Write merged file
     target_key = target_prefix + filename
     buffer = io.BytesIO()
     merged_pdf.to_parquet(buffer, engine='pyarrow', index=False)
@@ -223,7 +207,7 @@ else:
     s3.put_object(Bucket=bucket, Key=target_key, Body=buffer.getvalue())
     print("Wrote merged file to " + target_key)
 
-# Delete the tmp directory
+# cleanup temp files
 print("Cleaning up temporary files...")
 for obj in tmp_response.get('Contents', []):
     s3.delete_object(Bucket=bucket, Key=obj['Key'])

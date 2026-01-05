@@ -29,131 +29,86 @@ print("Load type: " + load_type)
 
 s3 = boto3.client('s3')
 
-# Parse date for daily path
 year_val, month_val, day_val = process_date.split('-')
 
-# ============================================
-# DATE FILTER - All data starts from 2018-01-01
-# ============================================
 DATA_START_DATE = '2018-01-01'
 
-# ============================================
-# TICKER MAPPINGS (Market Data - yfinance)
-# ============================================
+# ticker -> column name mappings
 TICKER_MAPPING = {
-    # Indices
     '^GSPC': 'sp500',
     '^IXIC': 'nasdaq',
-    # Crypto
     'BTC-USD': 'bitcoin_price',
     'ETH-USD': 'ethereum_price',
-    # Commodities
     'CL=F': 'oil',
     'GC=F': 'gold',
     'HG=F': 'copper',
-    # Currencies - FIXED TICKERS
     'USDCHF=X': 'usdchf',
     'EURUSD=X': 'eurusd',
     'GBPUSD=X': 'gbpusd',
     'USDJPY=X': 'usdjpy',
 }
 
-# ============================================
-# CRYPTOCOMPARE TICKER MAPPINGS (for price comparison)
-# ============================================
 CRYPTOCOMPARE_MAPPING = {
     'BTC-USD': 'bitcoin_price_cc',
     'ETH-USD': 'ethereum_price_cc',
 }
 
-# ============================================
-# ECONOMIC INDICATOR MAPPINGS
-# ============================================
-
-# FRED indicators (US data)
+# FRED series -> column name
 FRED_MAPPING = {
-    # US Policy & Rates
     'DFF': 'policy_rate_us',
     'DGS10': 'treasury_10y',
     'DGS2': 'treasury_2y',
     'T10Y2Y': 'treasury_spread',
     'DPRIME': 'prime_rate',
-    # US Economic
     'CPIAUCSL': 'cpi_us',
     'GDP': 'gdp_us',
     'M2SL': 'm2_us',
-    # US Labor
     'ICSA': 'jobless_claims',
-    # Fed Balance Sheet
     'WALCL': 'fed_balance_sheet',
-    'CHECPIALLMINMEI': 'cpi_ch',        # Switzerland CPI
-    'GBRCPIALLMINMEI': 'cpi_uk',        # UK CPI
-    'JPNCPIALLMINMEI': 'cpi_jp',        # Japan CPI
-    'CP0000EZ19M086NEST': 'cpi_eu',     # Eurozone HICP
-    # International GDP (NEW)
-    'CLVMNACSCAB1GQEA19': 'gdp_eu',     # Eurozone Real GDP
-    # Consumer Confidence (already have some, add more)
-    'CSCICP02EZM460S': 'cc_eu',         # Eurozone Consumer Confidence
-    'CSCICP02GBM460S': 'cc_uk',         # UK Consumer Confidence  
-    'CSCICP02JPM460S': 'cc_jp',         # Japan Consumer Confidence
-    'CSCICP02DEM460S': 'cc_de',         # Germany Consumer Confidence
-    'CSCICP02CHQ460S': 'cc_ch',         # Switzerland Consumer Confidence
-    'CSINFT02USM460S': 'cc_us',         # US Consumer Confidence
+    'CHECPIALLMINMEI': 'cpi_ch',
+    'GBRCPIALLMINMEI': 'cpi_uk',
+    'JPNCPIALLMINMEI': 'cpi_jp',
+    'CP0000EZ19M086NEST': 'cpi_eu',
+    'CLVMNACSCAB1GQEA19': 'gdp_eu',
+    'CSCICP02EZM460S': 'cc_eu',
+    'CSCICP02GBM460S': 'cc_uk',
+    'CSCICP02JPM460S': 'cc_jp',
+    'CSCICP02DEM460S': 'cc_de',
+    'CSCICP02CHQ460S': 'cc_ch',
+    'CSINFT02USM460S': 'cc_us',
 }
 
-# DBnomics indicators - ACTUAL SERIES IDs FROM YOUR DATA
+# dbnomics series -> column name
 DBNOMICS_MAPPING = {
-    # =============================================
-    # BIS - Central Bank Policy Rates (Daily)
-    # =============================================
-    'BIS/WS_CBPOL/D.XM': 'ecb_main_rate',      # Eurozone ECB rate
-    'BIS/WS_CBPOL/D.GB': 'policy_rate_uk',     # UK Bank of England rate
-    'BIS/WS_CBPOL/D.CH': 'policy_rate_ch',     # Switzerland SNB rate
-    'BIS/WS_CBPOL/D.JP': 'policy_rate_jp',     # Japan BOJ rate
-    
-    # =============================================
-    # OECD - Leading Indicators (Monthly) - as Consumer Confidence proxy
-    # =============================================
-    # 'OECD/MEI_CLI/LOLITOAA.USA.M': 'cc_us',    # US Leading Indicator
-    'OECD/MEI_CLI/LOLITOAA.JPN.M': 'cc_jp',    # Japan Leading Indicator
-    'OECD/MEI_CLI/LOLITOAA.GBR.M': 'cc_uk',    # UK Leading Indicator
-    'OECD/MEI_CLI/LOLITOAA.DEU.M': 'cc_eu',    # Germany as EU proxy
+    'BIS/WS_CBPOL/D.XM': 'ecb_main_rate',
+    'BIS/WS_CBPOL/D.GB': 'policy_rate_uk',
+    'BIS/WS_CBPOL/D.CH': 'policy_rate_ch',
+    'BIS/WS_CBPOL/D.JP': 'policy_rate_jp',
+    'OECD/MEI_CLI/LOLITOAA.JPN.M': 'cc_jp',
+    'OECD/MEI_CLI/LOLITOAA.GBR.M': 'cc_uk',
+    'OECD/MEI_CLI/LOLITOAA.DEU.M': 'cc_eu',
 }
 
-# Combined mapping for all economic indicators
 ECON_MAPPING = {**FRED_MAPPING, **DBNOMICS_MAPPING}
 
-# ============================================
-# COLUMN DEFINITIONS
-# ============================================
-# Base columns - ONLY include columns that have data sources
-# bitcoin_price_cc and ethereum_price_cc placed next to yfinance crypto columns
 BASE_COLUMNS = [
     'date',
-    # Market Data (yfinance)
     'sp500', 'nasdaq',
     'bitcoin_price', 'ethereum_price',
     'bitcoin_price_cc', 'ethereum_price_cc',
     'oil', 'gold', 'copper',
     'usdchf', 'eurusd', 'gbpusd', 'usdjpy',
-    # US Economic (FRED)
     'policy_rate_us', 'cpi_us', 'gdp_us', 'm2_us',
     'treasury_10y', 'treasury_2y', 'treasury_spread', 'prime_rate',
     'jobless_claims', 'fed_balance_sheet',
-    # International CPI (NEW)
     'cpi_ch', 'cpi_uk', 'cpi_jp', 'cpi_eu',
-    # International GDP (NEW)
     'gdp_eu',
-    # International Policy Rates (BIS via dbnomics)
     'ecb_main_rate', 'policy_rate_uk', 'policy_rate_ch', 'policy_rate_jp',
-    # Consumer Confidence
     'cc_us', 'cc_jp', 'cc_uk', 'cc_eu', 'cc_de', 'cc_ch',
 ]
 
-# Columns for forward-fill (macro data that doesn't update daily)
-# NOTE: Stock/market columns are NOT in this list - they should remain NULL on holidays
+# macro columns to forward-fill (not market data)
 FORWARD_FILL_COLUMNS = [
-    # US Economic (FRED)
     'policy_rate_us', 'cpi_us', 'gdp_us', 'm2_us',
     'treasury_10y', 'treasury_2y', 'treasury_spread', 'prime_rate',
     'jobless_claims', 'fed_balance_sheet',
@@ -163,9 +118,7 @@ FORWARD_FILL_COLUMNS = [
     'cc_us', 'cc_jp', 'cc_uk', 'cc_eu', 'cc_de', 'cc_ch',
 ]
 
-# ============================================
-# HELPER FUNCTION: Read parquet files from prefix
-# ============================================
+
 def read_parquet_files(bucket, prefix, s3_client):
     """Read all parquet files from a given S3 prefix"""
     dfs = []
@@ -184,24 +137,18 @@ def read_parquet_files(bucket, prefix, s3_client):
     return dfs
 
 
-# ============================================
-# HELPER FUNCTION: Read and process CryptoCompare data
-# ============================================
 def read_cryptocompare_data(bucket, s3_client, load_type, year_val=None, month_val=None, day_val=None):
     """Read CryptoCompare crypto data and return pivoted dataframe"""
     
     cc_dfs = []
     
     if load_type == "historical":
-        # Read historical data
         cc_prefix = "transformed/asset_class=crypto/source=cryptocompare/load_type=historical/"
         cc_dfs.extend(read_parquet_files(bucket, cc_prefix, s3_client))
         
-        # Also read any daily data
         cc_prefix_daily = "transformed/asset_class=crypto/source=cryptocompare/load_type=daily/"
         cc_dfs.extend(read_parquet_files(bucket, cc_prefix_daily, s3_client))
     else:
-        # Daily mode - read specific day
         daily_path_suffix = "load_type=daily/year=" + year_val + "/month=" + month_val + "/day=" + day_val + "/"
         cc_prefix = "transformed/asset_class=crypto/source=cryptocompare/" + daily_path_suffix
         cc_dfs.extend(read_parquet_files(bucket, cc_prefix, s3_client))
@@ -213,7 +160,6 @@ def read_cryptocompare_data(bucket, s3_client, load_type, year_val=None, month_v
     cc_df = pd.concat(cc_dfs, ignore_index=True)
     print("CryptoCompare records loaded: " + str(len(cc_df)))
     
-    # Filter to only BTC and ETH
     cc_df = cc_df[cc_df['ticker'].isin(CRYPTOCOMPARE_MAPPING.keys())]
     
     if len(cc_df) == 0:
@@ -223,7 +169,6 @@ def read_cryptocompare_data(bucket, s3_client, load_type, year_val=None, month_v
     cc_df['column_name'] = cc_df['ticker'].map(CRYPTOCOMPARE_MAPPING)
     cc_df['date'] = pd.to_datetime(cc_df['date'])
     
-    # Deduplicate
     cc_df = cc_df.sort_values(['date', 'ticker', 'transform_timestamp']).drop_duplicates(
         subset=['date', 'ticker'], keep='last'
     )
@@ -231,7 +176,6 @@ def read_cryptocompare_data(bucket, s3_client, load_type, year_val=None, month_v
     print("CryptoCompare records after dedup: " + str(len(cc_df)))
     print("CryptoCompare tickers: " + str(cc_df['ticker'].unique().tolist()))
     
-    # Pivot to wide format
     cc_wide = cc_df.pivot_table(
         index='date',
         columns='column_name',
@@ -245,26 +189,13 @@ def read_cryptocompare_data(bucket, s3_client, load_type, year_val=None, month_v
     return cc_wide
 
 
-# ============================================
-# HELPER FUNCTION: Filter out weekends from dataframe
-# ============================================
 def filter_weekends(df):
-    """
-    Remove weekend rows (Saturday=5, Sunday=6) from dataframe.
-    Returns dataframe with only weekday data (Monday-Friday).
-    """
-    # Ensure date is pandas datetime
+    """Remove weekend rows from dataframe"""
     df['date'] = pd.to_datetime(df['date'])
-    
-    # Get day of week (Monday=0, Sunday=6)
     df['_day_of_week'] = df['date'].dt.dayofweek
     
     rows_before = len(df)
-    
-    # Keep only weekdays (Monday=0 through Friday=4)
     df = df[df['_day_of_week'] <= 4].copy()
-    
-    # Remove temporary column
     df = df.drop(columns=['_day_of_week'])
     
     rows_removed = rows_before - len(df)
@@ -273,23 +204,18 @@ def filter_weekends(df):
     return df.reset_index(drop=True)
 
 
-# ============================================
-# HELPER FUNCTION: Calculate all derived metrics
-# ============================================
 def calculate_metrics(df):
-    """Calculate all derived metrics (returns, volatility, correlation, normalized, z-scores)"""
+    """Calculate derived metrics: returns, volatility, correlation, normalized prices, z-scores"""
     
     trading_days = 252
     sqrt_trading_days = math.sqrt(trading_days)
     
-    # =============================================
-    # 1. DAILY RETURNS
-    # =============================================
+    # daily returns
     return_columns = {
         'bitcoin_price': 'btc_ret',
         'ethereum_price': 'eth_ret',
-        'bitcoin_price_cc': 'btc_cc_ret',      # CryptoCompare returns
-        'ethereum_price_cc': 'eth_cc_ret',     # CryptoCompare returns
+        'bitcoin_price_cc': 'btc_cc_ret',
+        'ethereum_price_cc': 'eth_cc_ret',
         'sp500': 'sp500_ret',
         'nasdaq': 'nasdaq_ret',
         'gold': 'gold_ret',
@@ -301,9 +227,7 @@ def calculate_metrics(df):
         if price_col in df.columns:
             df[ret_col] = df[price_col].pct_change()
     
-    # =============================================
-    # 2. 7-DAY ROLLING VOLATILITY (Raw + Annualized)
-    # =============================================
+    # 7-day rolling volatility
     volatility_7d_columns = {
         'btc_ret': ('btc_vol_7d', 'btc_vol_7d_annualized'),
         'eth_ret': ('eth_vol_7d', 'eth_vol_7d_annualized'),
@@ -319,9 +243,7 @@ def calculate_metrics(df):
             df[vol_col] = df[ret_col].rolling(window=7, min_periods=2).std()
             df[vol_ann_col] = df[vol_col] * sqrt_trading_days
     
-    # =============================================
-    # 3. 30-DAY ROLLING VOLATILITY (Annualized)
-    # =============================================
+    # 30-day rolling volatility (annualized)
     volatility_30d_columns = {
         'btc_ret': 'btc_vol_30d',
         'eth_ret': 'eth_vol_30d',
@@ -335,20 +257,16 @@ def calculate_metrics(df):
         if ret_col in df.columns:
             df[vol_col] = df[ret_col].rolling(window=30, min_periods=5).std() * sqrt_trading_days
     
-    # =============================================
-    # 4. 90-DAY ROLLING CORRELATION (BTC vs SP500)
-    # =============================================
+    # 90-day rolling correlation (BTC vs SP500)
     if 'btc_ret' in df.columns and 'sp500_ret' in df.columns:
         df['corr_btc_sp500_90d'] = df['btc_ret'].rolling(window=90, min_periods=30).corr(df['sp500_ret'])
     
-    # =============================================
-    # 5. NORMALIZED PRICES (Base 100)
-    # =============================================
+    # normalized prices (base 100)
     normalize_columns = {
         'bitcoin_price': 'btc_norm',
         'ethereum_price': 'eth_norm',
-        'bitcoin_price_cc': 'btc_cc_norm',     # CryptoCompare normalized
-        'ethereum_price_cc': 'eth_cc_norm',    # CryptoCompare normalized
+        'bitcoin_price_cc': 'btc_cc_norm',
+        'ethereum_price_cc': 'eth_cc_norm',
         'sp500': 'sp500_norm',
         'nasdaq': 'nasdaq_norm',
         'gold': 'gold_norm',
@@ -364,9 +282,8 @@ def calculate_metrics(df):
             else:
                 df[norm_col] = None
     
-    # =============================================
-    # 6. Z-SCORES (Rolling 252-day)
-    # =============================================
+    # z-scores (252-day rolling window)
+    # set to 0 when std=0 (constant values like held policy rates)
     zscore_columns = [
         ('policy_rate_us', 'policy_rate_us_z'),
         ('treasury_10y', 'treasury_10y_z'),
@@ -378,10 +295,7 @@ def calculate_metrics(df):
         if col_name in df.columns:
             rolling_mean = df[col_name].rolling(window=252, min_periods=30).mean()
             rolling_std = df[col_name].rolling(window=252, min_periods=30).std()
-            # Calculate z-score
             df[z_name] = (df[col_name] - rolling_mean) / rolling_std
-            # Fix: Set z-score to 0 where std was 0 (constant values)
-            # When value = mean (constant period), z-score should be 0
             df.loc[rolling_std == 0, z_name] = 0.0
             
     policy_rate_cols_z = [
@@ -396,10 +310,7 @@ def calculate_metrics(df):
         if col_name in df.columns:
             rolling_mean = df[col_name].rolling(window=252, min_periods=30).mean()
             rolling_std = df[col_name].rolling(window=252, min_periods=30).std()
-            # Calculate z-score
             df[z_name] = (df[col_name] - rolling_mean) / rolling_std
-            # Fix: Set z-score to 0 where std was 0 (constant values)
-            # Central banks often hold rates constant for years (e.g., ECB at 0%, BOJ at -0.1%)
             df.loc[rolling_std == 0, z_name] = 0.0
     
     cc_cols_z = [
@@ -415,15 +326,10 @@ def calculate_metrics(df):
         if col_name in df.columns:
             rolling_mean = df[col_name].rolling(window=252, min_periods=30).mean()
             rolling_std = df[col_name].rolling(window=252, min_periods=30).std()
-            # Calculate z-score
             df[z_name] = (df[col_name] - rolling_mean) / rolling_std
-            # Fix: Set z-score to 0 where std was 0 (constant values)
-            # Forward-filled quarterly data can have long constant periods
             df.loc[rolling_std == 0, z_name] = 0.0
 
-    # =============================================
-    # 7. PRICE DIFFERENCE: yfinance vs CryptoCompare
-    # =============================================
+    # price difference: yfinance vs cryptocompare
     if 'bitcoin_price' in df.columns and 'bitcoin_price_cc' in df.columns:
         df['btc_price_diff'] = df['bitcoin_price'] - df['bitcoin_price_cc']
         df['btc_price_diff_pct'] = (df['btc_price_diff'] / df['bitcoin_price']) * 100
@@ -435,29 +341,21 @@ def calculate_metrics(df):
     return df
 
 
-# ============================================
-# MAIN LOGIC: FULL REFRESH vs APPEND
-# ============================================
+# main logic
 
 if load_type == "historical":
     
-    # ============================================
-    # FULL REFRESH MODE (Historical)
-    # Read ALL data, recalculate everything
-    # ============================================
+    # full refresh: read all data, recalculate everything
     print("=== FULL REFRESH MODE ===")
     
-    # ----- READ YFINANCE MARKET DATA -----
     yfinance_assets = ['stocks', 'indices', 'bonds', 'crypto', 'commodities', 'currencies']
     all_market_data = []
     
     for asset_class in yfinance_assets:
-        # Read HISTORICAL data
         historical_prefix = "transformed/asset_class=" + asset_class + "/source=yfinance/load_type=historical/"
         historical_dfs = read_parquet_files(bucket, historical_prefix, s3)
         all_market_data.extend(historical_dfs)
         
-        # Read ALL DAILY data
         daily_prefix = "transformed/asset_class=" + asset_class + "/source=yfinance/load_type=daily/"
         daily_dfs = read_parquet_files(bucket, daily_prefix, s3)
         all_market_data.extend(daily_dfs)
@@ -467,7 +365,6 @@ if load_type == "historical":
         job.commit()
         sys.exit(0)
     
-    # Combine and pivot market data
     market_df = pd.concat(all_market_data, ignore_index=True)
     print("Total market records before filter: " + str(len(market_df)))
     
@@ -475,7 +372,6 @@ if load_type == "historical":
     market_df['column_name'] = market_df['ticker'].map(TICKER_MAPPING)
     market_df['date'] = pd.to_datetime(market_df['date'])
     
-    # FILTER: Only data from 2018-01-01 onwards
     market_df = market_df[market_df['date'] >= DATA_START_DATE]
     print("Market records after date filter (>= " + DATA_START_DATE + "): " + str(len(market_df)))
     
@@ -496,23 +392,20 @@ if load_type == "historical":
     print("Market data pivoted: " + str(market_wide.shape))
     print("Market columns: " + str(market_wide.columns.tolist()))
     
-    # ----- READ CRYPTOCOMPARE DATA -----
+    # read cryptocompare data
     print("\n--- Reading CryptoCompare data ---")
     cc_wide = read_cryptocompare_data(bucket, s3, load_type)
     
     if cc_wide is not None:
-        # Filter to same date range
         cc_wide = cc_wide[cc_wide['date'] >= DATA_START_DATE]
         print("CryptoCompare records after date filter: " + str(len(cc_wide)))
         
-        # Merge with market data
         market_wide = pd.merge(market_wide, cc_wide, on='date', how='outer')
         print("After merging CryptoCompare: " + str(market_wide.shape))
     
-    # ----- READ ECONOMIC DATA (FRED + dbnomics) -----
+    # read economic data (FRED + dbnomics)
     all_econ_data = []
     
-    # Read FRED data
     for prefix_type in ['historical', 'daily']:
         if prefix_type == 'historical':
             fred_prefix = "transformed/asset_class=economic/source=fred/load_type=historical/"
@@ -524,7 +417,6 @@ if load_type == "historical":
             df_temp['data_source'] = 'fred'
         all_econ_data.extend(fred_dfs)
     
-    # Read DBnomics data - check all provider subfolders
     dbnomics_providers = ['bis_data', 'ecb_direct', 'eurostat', 'imf', 'oecd', 'worldbank']
     
     for provider in dbnomics_providers:
@@ -539,7 +431,7 @@ if load_type == "historical":
                 df_temp['data_source'] = 'dbnomics'
             all_econ_data.extend(dbnomics_dfs)
     
-    # Also try flat dbnomics path (in case data is not partitioned by provider)
+    # also check flat dbnomics path
     for prefix_type in ['historical', 'daily']:
         if prefix_type == 'historical':
             dbnomics_prefix = "transformed/asset_class=economic/source=dbnomics/load_type=historical/"
@@ -555,16 +447,13 @@ if load_type == "historical":
         econ_df = pd.concat(all_econ_data, ignore_index=True)
         print("Total economic records: " + str(len(econ_df)))
         
-        # Determine the indicator column name
         indicator_col = 'indicator'
         if 'series_id' in econ_df.columns and 'indicator' not in econ_df.columns:
             indicator_col = 'series_id'
             econ_df = econ_df.rename(columns={'series_id': 'indicator'})
         
-        # Check which indicators we have
         print("Unique indicators found: " + str(econ_df['indicator'].unique().tolist()[:30]))
         
-        # Filter to known mappings
         econ_df = econ_df[econ_df['indicator'].isin(ECON_MAPPING.keys())]
         print("Economic records matching known indicators: " + str(len(econ_df)))
         
@@ -572,11 +461,10 @@ if load_type == "historical":
             econ_df['column_name'] = econ_df['indicator'].map(ECON_MAPPING)
             econ_df['date'] = pd.to_datetime(econ_df['date'])
             
-            # FILTER: Only data from 2018-01-01 onwards
             econ_df = econ_df[econ_df['date'] >= DATA_START_DATE]
             print("Economic records after date filter (>= " + DATA_START_DATE + "): " + str(len(econ_df)))
             
-            # Remove duplicates, prefer FRED over dbnomics for same indicator
+            # prefer FRED over dbnomics for same indicator
             econ_df = econ_df.sort_values(['date', 'indicator', 'data_source']).drop_duplicates(
                 subset=['date', 'indicator'], keep='first'
             )
@@ -594,7 +482,6 @@ if load_type == "historical":
             print("Economic data pivoted: " + str(econ_wide.shape))
             print("Economic columns: " + str(econ_wide.columns.tolist()))
             
-            # Merge market + economic
             df = pd.merge(market_wide, econ_wide, on='date', how='outer')
         else:
             print("No economic records matched known indicators")
@@ -606,13 +493,9 @@ if load_type == "historical":
     print("Full refresh data loaded: " + str(len(df)) + " rows")
 
 else:
-    # ============================================
-    # APPEND MODE (Daily)
-    # Read existing curated + only new daily data
-    # ============================================
+    # append mode: read existing curated + new daily data
     print("=== APPEND MODE ===")
     
-    # Wait for transformed data
     max_wait = 600
     wait_interval = 30
     waited = 0
@@ -638,7 +521,6 @@ else:
             time.sleep(wait_interval)
             waited += wait_interval
     
-    # Step 1: Read existing curated file
     curated_key = "curated/macro_market_merged.parquet"
     existing_df = None
     
@@ -647,7 +529,6 @@ else:
         existing_df = pd.read_parquet(io.BytesIO(s3_obj['Body'].read()))
         existing_df['date'] = pd.to_datetime(existing_df['date'])
         
-        # Keep only base columns, drop calculated columns
         base_cols_present = [c for c in BASE_COLUMNS if c in existing_df.columns]
         existing_df = existing_df[base_cols_present]
         print("Existing curated data: " + str(len(existing_df)) + " rows")
@@ -656,7 +537,6 @@ else:
         load_type = "historical"
     
     if existing_df is not None:
-        # Step 2: Read only NEW daily data
         yfinance_assets = ['stocks', 'indices', 'bonds', 'crypto', 'commodities', 'currencies']
         new_market_data = []
         
@@ -665,24 +545,20 @@ else:
             dfs = read_parquet_files(bucket, prefix, s3)
             new_market_data.extend(dfs)
         
-        # Read new FRED data
         fred_prefix = "transformed/asset_class=economic/source=fred/" + daily_path_suffix
         new_fred_data = read_parquet_files(bucket, fred_prefix, s3)
         
-        # Read new dbnomics data (check all providers)
         new_dbnomics_data = []
         dbnomics_providers = ['bis_data', 'ecb_direct', 'eurostat', 'imf', 'oecd', 'worldbank']
         for provider in dbnomics_providers:
             dbnomics_prefix = "transformed/asset_class=economic/source=dbnomics/provider=" + provider + "/" + daily_path_suffix
             new_dbnomics_data.extend(read_parquet_files(bucket, dbnomics_prefix, s3))
         
-        # Also try flat path
         dbnomics_prefix_flat = "transformed/asset_class=economic/source=dbnomics/" + daily_path_suffix
         new_dbnomics_data.extend(read_parquet_files(bucket, dbnomics_prefix_flat, s3))
         
         new_econ_data = new_fred_data + new_dbnomics_data
         
-        # Read new CryptoCompare data
         print("\n--- Reading new CryptoCompare daily data ---")
         cc_wide = read_cryptocompare_data(bucket, s3, 'daily', year_val, month_val, day_val)
         
@@ -690,7 +566,6 @@ else:
             print("No new market data found for " + process_date)
             df = existing_df
         else:
-            # Process new market data
             market_df = pd.concat(new_market_data, ignore_index=True)
             market_df = market_df[market_df['ticker'].isin(TICKER_MAPPING.keys())]
             market_df['column_name'] = market_df['ticker'].map(TICKER_MAPPING)
@@ -704,16 +579,13 @@ else:
                 aggfunc='first'
             ).reset_index()
             
-            # Merge CryptoCompare data
             if cc_wide is not None:
                 new_market_wide = pd.merge(new_market_wide, cc_wide, on='date', how='outer')
                 print("After merging CryptoCompare: " + str(new_market_wide.shape))
             
-            # Process new economic data
             if len(new_econ_data) > 0:
                 econ_df = pd.concat(new_econ_data, ignore_index=True)
                 
-                # Handle indicator column name
                 if 'series_id' in econ_df.columns and 'indicator' not in econ_df.columns:
                     econ_df = econ_df.rename(columns={'series_id': 'indicator'})
                 
@@ -739,71 +611,53 @@ else:
             
             print("New data rows: " + str(len(new_data)))
             
-            # Step 3: Remove existing rows for the same dates (handle reprocessing)
+            # remove existing rows for same dates (handle reprocessing)
             existing_df = existing_df[~existing_df['date'].isin(new_data['date'])]
             
-            # Step 4: Append new data
             df = pd.concat([existing_df, new_data], ignore_index=True)
         
         print("Combined data: " + str(len(df)) + " rows")
 
 
-# ============================================
-# COMMON: SORT, FILTER WEEKENDS, FORWARD-FILL
-# ============================================
+# sort, filter weekends, forward-fill
 
-# Sort by date
-df['date'] = pd.to_datetime(df['date'])  # Ensure datetime format
+df['date'] = pd.to_datetime(df['date'])
 df = df.sort_values('date').reset_index(drop=True)
 df = df.drop_duplicates(subset=['date'], keep='last')
 
-# Filter out weekends (Saturday=5, Sunday=6)
-# Using dedicated function for robustness
 print("\n--- Filtering weekends ---")
 df = filter_weekends(df)
 
-# Forward-fill macro data ONLY (NOT market/stock data)
-# Stock values should remain NULL on holidays
 print("\n--- Forward-filling macro indicators ---")
 for col_name in FORWARD_FILL_COLUMNS:
     if col_name in df.columns:
         df[col_name] = df[col_name].ffill()
 
 
-# ============================================
-# CALCULATE ALL DERIVED METRICS
-# ============================================
+# calculate derived metrics
 
 print("\nCalculating derived metrics...")
 df = calculate_metrics(df)
 
 
-# ============================================
-# REORDER COLUMNS
-# ============================================
+# reorder columns
 
-# Get all columns, starting with BASE_COLUMNS in order, then any additional calculated columns
 final_columns = []
 
-# First add base columns in specified order
 for col in BASE_COLUMNS:
     if col in df.columns:
         final_columns.append(col)
 
-# Then add any remaining columns (calculated metrics)
 for col in df.columns:
     if col not in final_columns:
         final_columns.append(col)
 
-# Convert date to date object for cleaner output
 df['date'] = pd.to_datetime(df['date']).dt.date
 
 df = df[final_columns]
 
 
-# ============================================
-# FINAL OUTPUT
-# ============================================
+# write output
 
 print("\nFinal curated data: " + str(df.shape[0]) + " rows, " + str(df.shape[1]) + " columns")
 print("Columns: " + str(df.columns.tolist()))
@@ -811,7 +665,6 @@ print("Columns: " + str(df.columns.tolist()))
 if len(df) > 0:
     print("Date range: " + str(df['date'].min()) + " to " + str(df['date'].max()))
 
-# Write Parquet
 curated_key = "curated/macro_market_merged.parquet"
 buffer = io.BytesIO()
 df.to_parquet(buffer, engine='pyarrow', index=False)
@@ -819,7 +672,6 @@ buffer.seek(0)
 s3.put_object(Bucket=bucket, Key=curated_key, Body=buffer.getvalue())
 print("Successfully wrote parquet to: s3://" + bucket + "/" + curated_key)
 
-# Write CSV
 csv_key = "curated/macro_market_merged.csv"
 csv_buffer = io.StringIO()
 df.to_csv(csv_buffer, index=False)

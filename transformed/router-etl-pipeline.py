@@ -5,19 +5,16 @@ from datetime import datetime, timedelta
 glue = boto3.client('glue')
 
 def lambda_handler(event, context):
-    # 1. Standardize Date (Defaults to Yesterday)
-    # We calculate this here because EventBridge doesn't pass the date.
+    # default to yesterday since EventBridge doesn't pass the date
     yesterday = datetime.now() - timedelta(days=1)
     process_date = yesterday.strftime("%Y-%m-%d")
     
-    # 2. Identify WHICH ECS Task just finished
-    # The ARN looks like: "arn:aws:ecs:us-east-1:123:task-definition/data-pipeline-yfinance:5"
+    # extract task definition from event
     task_arn = event.get('detail', {}).get('taskDefinitionArn', '')
     
     print(f"Event received from Task ARN: {task_arn}")
 
-    # 3. Define the Map: Task Name -> Glue Job Name
-    # This is the "Brain" of the router.
+    # routing map: ECS task -> Glue job
     PIPELINE_ROUTING_MAP = {
         'data-pipeline-yfinance': {
             'job_name': 'raw-to-transformed-yfinance',
@@ -27,10 +24,6 @@ def lambda_handler(event, context):
             'job_name': 'raw-to-transformed-fred',
             'assets': ['economic']
         },
-        # 'data-pipeline-quandl': {
-        #     'job_name': 'raw-to-transformed-quandl',
-        #     'assets': ['futures']
-        # },
         'data-pipeline-dbnomics': {
             'job_name': 'raw-to-transformed-dbnomics',
             'assets': ['economic']
@@ -41,7 +34,7 @@ def lambda_handler(event, context):
         }
     }
 
-    # 4. Find the matching Glue Job
+    # find and trigger matching Glue job
     triggered_job = None
     
     for task_key, config in PIPELINE_ROUTING_MAP.items():
@@ -51,8 +44,6 @@ def lambda_handler(event, context):
             
             print(f"Match found! Source: {task_key} --> Target: {job_name}")
             
-            # Trigger the Glue Job (Layer 1 Only)
-            # We loop if a single source maps to multiple assets (like yfinance)
             for asset in assets:
                 try:
                     response = glue.start_job_run(

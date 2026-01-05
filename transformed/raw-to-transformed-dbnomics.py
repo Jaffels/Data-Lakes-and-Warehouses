@@ -9,16 +9,6 @@ from awsglue.context import GlueContext
 from awsglue.job import Job
 from pyspark.sql.functions import col, lit, year, month, dayofmonth, to_date, current_timestamp
 
-# ============================================
-# JOB PARAMETERS
-# ============================================
-# Required parameters:
-#   --source_bucket: S3 bucket name (e.g., production-team-pacific)
-#   --asset_class: Asset class (e.g., economic)
-#   --provider: Data provider (e.g., bis_data, ecb_direct, eurostat, imf, oecd, worldbank)
-#   --load_type: historical or daily
-#   --process_date: Date in YYYY-MM-DD format
-
 args = getResolvedOptions(sys.argv, ['JOB_NAME', 'source_bucket', 'asset_class', 'provider', 'load_type', 'process_date'])
 
 sc = SparkContext()
@@ -46,20 +36,13 @@ print("=" * 60)
 s3 = boto3.client('s3')
 
 
-# ============================================
-# BUILD SOURCE AND TARGET PATHS
-# ============================================
-# Structure mirrors raw/ in transformed/:
-#   raw/asset_class=X/source=dbnomics/provider=Y/load_type=Z/
-#   transformed/asset_class=X/source=dbnomics/provider=Y/load_type=Z/
+# build source and target paths
 
 if load_type == "historical":
-    # Historical: flat folder, no year/month/day partitions
     source_prefix = "raw/asset_class=" + asset_class + "/source=dbnomics/provider=" + provider + "/load_type=historical/"
     target_prefix = "transformed/asset_class=" + asset_class + "/source=dbnomics/provider=" + provider + "/load_type=historical/"
     filename = asset_class + "_dbnomics_" + provider + "_historical.parquet"
 else:
-    # Daily: with year/month/day partitions
     year_val, month_val, day_val = process_date.split('-')
     source_prefix = "raw/asset_class=" + asset_class + "/source=dbnomics/provider=" + provider + "/load_type=daily/year=" + year_val + "/month=" + month_val + "/day=" + day_val + "/"
     target_prefix = "transformed/asset_class=" + asset_class + "/source=dbnomics/provider=" + provider + "/load_type=daily/year=" + year_val + "/month=" + month_val + "/day=" + day_val + "/"
@@ -70,10 +53,7 @@ print("Source: s3://" + bucket + "/" + source_prefix)
 print("Target: s3://" + bucket + "/" + target_prefix + filename)
 
 
-# ============================================
-# READ SOURCE FILES
-# ============================================
-# Use paginator in case there are many files
+# read source files
 
 paginator = s3.get_paginator('list_objects_v2')
 all_dfs = []
@@ -104,7 +84,6 @@ combined_pdf = pd.concat(all_dfs, ignore_index=True)
 print("Total records read: " + str(len(combined_pdf)))
 print("Columns found: " + str(combined_pdf.columns.tolist()))
 
-# Show unique indicators/series found
 if 'series_id' in combined_pdf.columns:
     unique_series = combined_pdf['series_id'].nunique()
     print("Unique series_id values: " + str(unique_series))
@@ -114,35 +93,31 @@ elif 'indicator' in combined_pdf.columns:
     print("Unique indicator values: " + str(unique_indicators))
 
 
-# ============================================
-# TRANSFORM DATA
-# ============================================
+# transform data
 
 raw_df = spark.createDataFrame(combined_pdf)
 
-# Rename series_id to indicator if exists (standardize column name)
+# standardize column name: series_id -> indicator
 if "series_id" in combined_pdf.columns:
     transformed_df = raw_df.withColumnRenamed("series_id", "indicator")
 else:
     transformed_df = raw_df
 
-# Add date components
 transformed_df = transformed_df.withColumn("date", to_date(col("date")))
 transformed_df = transformed_df.withColumn("year", year("date"))
 transformed_df = transformed_df.withColumn("month", month("date"))
 transformed_df = transformed_df.withColumn("day", dayofmonth("date"))
 
-# Filter null values
 transformed_df = transformed_df.filter(col("value").isNotNull())
 
-# Add metadata columns
+# add metadata
 transformed_df = transformed_df.withColumn("asset_class", lit(asset_class))
 transformed_df = transformed_df.withColumn("source", lit("dbnomics"))
 transformed_df = transformed_df.withColumn("provider", lit(provider))
 transformed_df = transformed_df.withColumn("load_type", lit(load_type))
 transformed_df = transformed_df.withColumn("transform_timestamp", current_timestamp())
 
-# Select output columns based on what exists
+# select output columns
 available_cols = [c for c in transformed_df.columns]
 output_cols = ["date"]
 
@@ -165,9 +140,7 @@ print("Records to write: " + str(record_count))
 final_df.show(10)
 
 
-# ============================================
-# WRITE OUTPUT
-# ============================================
+# write output
 
 output_pdf = final_df.toPandas()
 target_key = target_prefix + filename
@@ -188,4 +161,3 @@ print("  s3://" + bucket + "/" + target_key)
 print("=" * 60)
 
 job.commit()
-
