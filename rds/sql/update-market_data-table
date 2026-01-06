@@ -1,0 +1,55 @@
+-- Add cryptocurrency alternate pricing columns (CoinCap source)
+ALTER TABLE market_data ADD COLUMN bitcoin_price_cc DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN ethereum_price_cc DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN btc_cc_ret DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN eth_cc_ret DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN btc_cc_norm DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN eth_cc_norm DOUBLE PRECISION;
+
+-- Add cryptocurrency price difference columns
+ALTER TABLE market_data ADD COLUMN btc_price_diff DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN btc_price_diff_pct DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN eth_price_diff DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN eth_price_diff_pct DOUBLE PRECISION;
+
+-- Add US Treasury data columns
+ALTER TABLE market_data ADD COLUMN treasury_10y DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN treasury_2y DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN treasury_spread DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN treasury_10y_z DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN treasury_2y_z DOUBLE PRECISION;
+
+-- Add US financial indicator columns
+ALTER TABLE market_data ADD COLUMN prime_rate DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN prime_rate_z DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN jobless_claims DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN fed_balance_sheet DOUBLE PRECISION;
+
+-- Add European data columns
+ALTER TABLE market_data ADD COLUMN cc_de DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN cc_eu DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN cpi_eu DOUBLE PRECISION;
+ALTER TABLE market_data ADD COLUMN gdp_eu DOUBLE PRECISION;
+
+-- Add Germany consumer confidence z-score
+ALTER TABLE market_data ADD COLUMN cc_de_z DOUBLE PRECISION;
+
+-- Add EU consumer confidence z-score
+ALTER TABLE market_data ADD COLUMN cc_eu_z DOUBLE PRECISION;
+
+--  Remove the 4 Eurozone columns
+-- ============================================================================
+
+-- Remove Eurozone CPI (different from cpi_eu which is EU CPI)
+ALTER TABLE market_data DROP COLUMN cpi_ea;
+
+-- Remove Eurozone GDP (different from gdp_eu which is EU GDP)
+ALTER TABLE market_data DROP COLUMN gdp_ea;
+
+-- Remove EU consumer confidence
+ALTER TABLE market_data DROP COLUMN eu_cc_confidence;
+
+-- Remove EU consumer confidence z-score
+ALTER TABLE market_data DROP COLUMN eu_cc_confidence_z;
+
+
