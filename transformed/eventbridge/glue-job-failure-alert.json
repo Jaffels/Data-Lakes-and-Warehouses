@@ -1,0 +1,8 @@
+{
+  "source": ["aws.glue"],
+  "detail-type": ["Glue Job State Change"],
+  "detail": {
+    "state": ["FAILED", "TIMEOUT", "ERROR"],
+    "jobName": ["raw-to-transformed-yfinance", "raw-to-transformed-fred", "raw-to-transformed-dbnomics", "raw-to-transformed-cryptocompare", "transformed-to-curated"]
+  }
+}

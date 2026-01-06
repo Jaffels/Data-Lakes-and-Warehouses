@@ -1,0 +1,22 @@
+{
+  "source": ["aws.ecs"],
+  "detail-type": ["ECS Task State Change"],
+  "detail": {
+    "taskDefinitionArn": [{
+      "prefix": "arn:aws:ecs:us-east-1:404264700821:task-definition/data-pipeline-yfinance-daily"
+    }, {
+      "prefix": "arn:aws:ecs:us-east-1:404264700821:task-definition/data-pipeline-fred-daily"
+    }, {
+      "prefix": "arn:aws:ecs:us-east-1:404264700821:task-definition/data-pipeline-quandl-daily"
+    }, {
+      "prefix": "arn:aws:ecs:us-east-1:404264700821:task-definition/data-pipeline-dbnomics-daily"
+    }, {
+      "prefix": "arn:aws:ecs:us-east-1:404264700821:task-definition/data-pipeline-cryptocompare-daily"
+    }],
+    "lastStatus": ["STOPPED"],
+    "stoppedReason": ["Essential container in task exited"],
+    "containers": {
+      "exitCode": [0]
+    }
+  }
+}
