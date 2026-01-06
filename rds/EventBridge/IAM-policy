@@ -1,0 +1,16 @@
+
+---
+{
+    "_comment": "Used by EventBridge to trigger Glue transformation and RDS load jobs",
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "glue:StartJobRun",
+            "Resource": [
+                "arn:aws:glue:us-east-1:404264700821:job/transformed-to-curated",
+                "arn:aws:glue:us-east-1:404264700821:job/curated-to-rds-writer"
+            ]
+        }
+    ]
+}
